@@ -9,25 +9,37 @@
 <body>
     <div id= "main" class="splash">
 
-<!--         <div id="header">
-            <img class="banner" alt="CS 450 Banner" title="CS 450 Banner" src="../course/cs450.jpg" />
-        </div>
- -->
         <article>
 
             <h1>01 Prove : Assignment - Experiment Shell &amp; Hardcoded Classifier</h1>
 
             <h2>Objective</h2>
-            <p>Create an experiment shell that can be used to load data, apply a classification algorithm, and report results. As a placeholder, implement a classifier, "HardCodedClassifier", that always predicts the same class.</p>
-            <p>More than anything, the purpose of this assignment is to make sure you have the pieces in place to be successful in future assignments. Next week, we will program an actual classifier that will make use of the framework you put in place here.</p>
+            <p>Create an experiment shell that can be used to load data, apply a classification algorithm, and report results.</p>
+
+            <p>As a placeholder, also implement a classifier, "HardCodedClassifier", that always predicts the same class.</p>
+
+            <p>More than anything, the purpose of this assignment is to make sure you have the pieces in place to be successful in future assignments. Next week, we will implement an actual classifier that will make use of the framework you put in place here.</p>
             
             <h2>Instructions</h2>
-            <p>Write a Python program that can:</p>
+            <p>In short, write a Python program that can:</p>
+
             <ol>
-                <li>Load a dataset containing many instances each with a set of attributes and a target value.</li>
-                <li>
-                    <p>Please use the popular Iris dataset, found at: <a href="http://archive.ics.uci.edu/ml/datasets/Iris" target="_blank">http://archive.ics.uci.edu/ml/datasets/Iris</a>&nbsp;. It contains 150 instances of three classes of Irises (50 per class), and four numeric attributes (in addition to the class name).</p>
-                    <p>Please note that this popular dataset is natively included in the Python scikit-learn package. You can easily obtain it with the following code:</p>
+                <li>Load data</li>
+                <li>Prepare training/test sets</li>
+                <li>Use an existing algorithm to create a model</li>
+                <li>Use that model to make predictions</li>
+                <li>Implement your own new "algorithm"</li>
+            </ol>
+
+            <p>The following list expounds on each of the steps above. In more detail, your program should:</p>
+
+            <h3>1. Load data</h3>
+                <p>Load a dataset containing many instances each with a set of attributes and a target value.</p>
+
+                <p>Initially, use the popular Iris dataset, found in the <a href="http://archive.ics.uci.edu/ml/datasets/Iris" target="_blank">UCI data repository</a> It contains 150 instances of three classes of Irises (50 per class), and four numeric attributes (in addition to the class name).</p>
+
+                <p>Please note that this popular dataset is also natively included in the Python scikit-learn package. You can easily obtain it and view its contents with the following code:</p>
+
 <div class="code">
 from sklearn import datasets
 iris = datasets.load_iris()
@@ -41,29 +53,48 @@ print(iris.target)
 # Show the actual target names that correspond to each number
 print(iris.target_names)
 </div>
-                <p>In future weeks, you will need to be able to load data sets from text files as well, but for this assignment, loading from this datasets package is sufficient.</p>
+                <p>In future weeks, you will need to be able to load data sets from text files as well, including those that have non-numeric data, so you should consider getting into that as an "above and beyond" idea for this week.</p>
 
-                </li>
+            <h3>2. Prepare training/test sets</h3>
 
-                <li>Randomize the order of the instances in the dataset. Don't forget that you need to keep the targets matched up with the appropriate instance.</li>
+                <p>Randomize the data (making sure to keep the targets lined up with their corresponding instances), and split it into a training set (70%) and a testing set (30%).</p>
 
-                <li>Split the dataset into two sets: a training set (70%) and a testing set (30%).</li>
+                <p>You are welcome to do this yourself, slicing arrays, etc., but I would encourage you to look at the <code>train_test_split</code> function in sk-learn which does this for you.</p>
 
-                <li>Create a class for a "HardCoded" classifier with the following methods:</li>
+            <h3>3. Use an existing algorithm to create a model</h3>
 
-                <ul>
-                    <li>fit (or, you could call it, "train"): accepts a training dataset (the instances and their corresponding targets). This method does not need to <em>do</em> anything for the HardCoded classifier.</li>
-                    <li>predict: accepts an array of instances without targets, and for each one, predicts a class, and returns an array of predictions. For the "HardCoded" classifier the prediction can always be the same class (e.g., 0 or "setosa", but it doesn't really matter which one you choose).</li>
-                </ul>
+                <p>Use the Naive Bayes algorithm implementation <code>GaussianNB</code> from <code>sk-learn</code> to train a model based on your training data and its targets. You can train a model with this classifier using its fit function:</p>
 
-                <li>Instantiate your new classifier, "train" it with your training data, then use it to make predictions on the test data.</li>
+<div class="code">
+classifier = GaussianNB()
+model = classifier.fit(data_train, targets_train)
+</div>
 
-                <li>Determine the accuracy of your classifier's predictions and report the result as a percentage.</li>
+            <h3>4. Use that model to make predictions</h3>
 
-                <li>Create a new public repository at GitHub, and push your code to it.</li>
-            </ol>
+                <p>Use the model returned by the <code>fit()</code> function in the last step to predict the targets for your test set data. This can be done with the <code>.predict()</code> function on the model that is returned:</p>
 
-            <p>You are welcome to use the train_test_split function from sklearn if it is helpful to you, but you are not required to do so.
+<div class="code">
+targets_predicted = model.predict(data_test)
+</div>
+
+                <p>Then, compare the predicted targets to the actual targets and output the resulting accuracy.</p>
+
+            <h3>5. Implement your own new "algorithm"</h3>
+                <p>Once you have the above components working, implement your first "learning algorithm," a HardCodedClassifier that always predicts the same class.</p>
+                <p>You should create a new class, <code>HardCodedClassifier</code>, that has a <code>.fit()</code> method that takes the data and targets and returns a <code>HardCodedModel</code> object, which has a <code>.predict()</code> method that takes the test data and returns targets. These should be able to be used just like an sk-learn algorithm, like so:</p>
+
+<div class="code">
+classifier = HardCodedClassifier()
+model = classifier.fit(data_train, targets_train)
+targets_predicted = model.predict(data_test)
+</div>
+
+                <p>You don't need anything intelligent in your HardCoded classes. The <code>.fit()</code>method can just return an empty new model. And the model's <code>.predict()</code> method can just loop through the data and return a list of 0's as a prediction for each instance. In other words, it always predicts "iris-setosa" or something like that.</p>
+
+                <p>Instantiate your new classifier, "train" it with your training data, then use it to make predictions on the test data.</p>
+
+                <p>Determine the accuracy of your classifier's predictions and report the result as a percentage.</p>
 
             <h2>Requirements</h2>
             <p>As always, you are encouraged to go above and beyond and take initiative in your learning. As described in the syllabus, meeting the minimum standard requirements can qualify you for 93%, but going above and beyond is necessary to get 100%. The following are the expectations for the minimum standard, with a few suggestions for going above and beyond.</p>
@@ -73,9 +104,10 @@ print(iris.target_names)
                 <li>The Iris dataset can be loaded</li>
                 <li>The order of the instances can be randomized</li>
                 <li>The dataset can be split into a training / test set</li>
-                <li>HardCoded classifier class is created with fit/train and predict methods</li>
+                <li>The GaussianNB algorithm can be run on the Iris dataset, make predictions, and get results.</li>
+                <li>A HardCodedClassifier and HardCodedModel class are created with fit and predict methods</li>
                 <ul>
-                    <li>Fit (or Train) accepts training data</li>
+                    <li>Fit accepts training data and targets</li>
                     <li>Predict makes a prediction for the data it receives (at this point, it always predicts the same answer)</li>
                 </ul>
                 <li>HardCoded classifier can be "trained" and "tested" on the Iris dataset and accuracy on the training set is reported.</li>
@@ -83,7 +115,7 @@ print(iris.target_names)
 
             <h3>Opportunities to go above and beyond:</h3>
             <ul>
-                <li>In addition to loading data from the scikit-learn package, also, load data from CSV/text files</li>
+                <li>In addition to loading data from the sk-learn package, also, load data from CSV/text files</li>
                 <li>Handling non-numeric data types in CSV/text files</li>
                 <li>Adding user interface components (command line is just fine) to specify various parameters of an experiment (e.g., what dataset to use, what algorithm to use, how to split the training/testing data)</li>
                 <li>Adding <em>n</em>-fold cross validation</li>
@@ -94,6 +126,7 @@ print(iris.target_names)
  -->
 <!--             <p>Also, while not required, you are recommended to use the Weka API (weka.jar) to help you in your programming. For example, there are classes and methods that facilitate reading files from CSV or ARFF formats, and filtering/preprocessing data. For more information about using Weka in your code see:&nbsp;<a href="https://weka.wikispaces.com/Use+WEKA+in+your+Java+code" target="_blank">https://weka.wikispaces.com/Use+WEKA+in+your+Java+code</a></p> -->
             <h2>Submission</h2>
+
             <p>When complete, push your code to a public GitHub repository and answer the questions in the <a href="../forms/450-01-prove-form.txt" target="_BLANK">submission form</a>. Then submit this text file to I-Learn.</p>
         </article>
     </div>

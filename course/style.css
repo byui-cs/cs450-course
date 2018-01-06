@@ -180,6 +180,7 @@ font-weight:700;
 
 #main code {
 	font-size: 10pt;
+	font-weight: bold;
 }
 .CodeCBorder {
   border: solid #D9D9D9 2.25pt;
@@ -331,4 +332,5 @@ table.bh tr:nth-child(even) td {
     font-family: monospace;
     white-space: pre;
     margin-bottom: 20px;
+    font-weight:bold;
 }
