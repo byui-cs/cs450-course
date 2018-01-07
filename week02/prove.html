@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 450 - Prove</title>
+    <link rel="stylesheet" type="text/css" href="../course/style2018.css" />
+</head>
+
+<body>
+    <div id="courseTitle">
+        <span class="icon-byui-logo"></span>
+        <h1>Machine Learning &amp; Data Mining | CS 450</h1>
+    </div>
+    <article>
+
+            <h2>02 Prove : Assignment - kNN Classifier</h2>
+
+            <h3>Objective</h3>
+            <p>Understand a straightforward learning algorithm, the <i>k</i>-Nearest Neighbors algorithm.</p>
+            <h3>Instructions</h3>
+            <p>Add to your experiment shell from the previous assignment. Implement a new algorithm, <i>k</i>-Nearest Neighbors, that can be configured for any size of neighborhood, <i>k</i>. To classify an instance, the algorithm should identify its <i>k</i> nearest neighbors and use their labels to determine the target classification.</p>
+            <p>In addition, these week you will need to add the ability to read in a data set from a text file that contains both numeric and nominal (think: strings) data. The trick with this is that your NumPy multi-dimensional array only likes numbers, so you'll need to convert the text to numbers appropriately.</p>
+
+            <h3>Experiment Guidelines</h3>
+            <p>After implementing the algorithm, use it to classify the following datasets:</p>
+            <ol>
+                <li><p><a href="http://archive.ics.uci.edu/ml/datasets/Iris" target="_blank">Iris</a></p></li>
+                <li><p><a href="http://archive.ics.uci.edu/ml/datasets/Car+Evaluation">Car Evaluation</a></p></li>
+                <li><p>(Optional)<a href="http://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Original%29" target="_blank">Breast Cancer Wisconsin - Original</a> (There are a few different breast cancer datasets with different properties, so it might be more clear to just work with the other two datasets mentioned).</p></li>
+            </ol>
+
+            <p>For each one, experiment with different parameters for the algorithm.</p>
+            
+            <p>Also, for each one, also use an existing implementation of the k-Nearest Neighbors algorithm and compare/contrast your results. There are several different options for this. One option is to use the Python scikit-learn algorithm implementation. You should look up more documentation, but in short, it can be used as easy as:</p>
+
+<pre><code class="python">
+from sklearn.neighbors import KNeighborsClassifier
+
+# ...
+# ... code here to load a training and testing set
+# ...
+
+classifier = KNeighborsClassifier(n_neighbors=3)
+model = classifier.fit(train_data, train_target)
+predictions = model.predict(test_data)
+</code></pre>
+
+            <p>Another option is to download <a href="http://www.cs.waikato.ac.nz/ml/weka/" target="_blank">Weka</a>, which is a free, open-source Java implementation of many learning and data processing algorithms. It is not pretty or fancy, but does have a GUI that you can use to play around with these algorithms.</p>
+
+            <h3>Questions for Consideration</h3>
+            <ul>
+                <li><p>How should categorical data be handled?</p></li>
+                <li><p>How should missing data be handled?</p></li>
+                <li><p>How should the labels of the neighbors be used (e.g., simply majority or something else)?</p></li>
+            </ul>
+
+            <h3>Requirements</h3>
+            <p>As always, you are encouraged to go above and beyond and take initiative in your learning. As described in the syllabus, meeting the minimum standard requirements can qualify you for 93%, but going above and beyond is necessary to get 100%. The following are the expectations for a minimum standard, with a few suggestions for going above and beyond.</p>
+            <h4>Minimum Standard Requirements</h4>
+            <ul>
+                <li><p>Implement basic kNN algorithm</p></li>
+                <li><p>Be able to load datasets from text files</p></li>
+                <li><p>Handle numeric and nominal data</p></li>
+                <li><p>Normalize numeric data</p></li>
+                <li><p>Basic experimentation</p></li>
+                <ul>
+                    <li><p>Play with different values of K</p></li>
+                    <li><p>Compare to existing implementations</p></li>
+                </ul>
+            </ul>
+
+            <h4>Opportunities to go above and beyond:</h4>
+            <ul>
+                <li><p>KD-Tree</p></li>
+                <li><p>Significant Experimentation, for example:</p></li>
+                <ul>
+                    <li><p>Different distance metrics</p></li>
+                    <li><p>Several more datasets</p></li>
+                </ul>
+                <li><p>Any other ideas you have</p></li>
+            </ul>
+
+
+            <h3>Submission</h3>
+            <p>When complete, push your code to a public GitHub repository and answer the questions in the <a href="./prove02.txt">submission txt file</a>. There were some issues with the PDF process from last week, so we are going to use a .txt file this week to see if it is easier. Please fill it out and upload it to I-Learn.</p>
+
+        </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+
+</html>
