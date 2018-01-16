@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 450 - Prove</title>
+    <link rel="stylesheet" type="text/css" href="../course/style2018.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <span class="icon-byui-logo"></span>
+    <h1>Machine Learning &amp; Data Mining | CS 450</h1>
+</div>
+    <article>
+
+            <h2>04 Prove : Assignment - Decision Tree Classifier</h2>
+
+            <h3>Objective</h3>
+            <p>Understand the ID3 Decision Tree algorithm.</p>
+            <p>Please note that you have 2 weeks to implement and experiment with this algorithm. This is because it can be a challenge! Do not put this off until next week. You should try to complete the coding portion this week to leave next week for experimentation.</p>
+            <h3>Instructions</h3>
+            <p>Add to your experiment shell from the previous assignment. Implement a new algorithm, the ID3 Decision Tree.</p>
+            <h3>Experiment Guidelines</h3>
+            <p>After implementing the algorithm, use it to classify the following datasets:</p>
+            <ol>
+                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Iris" target="_blank" title="Iris Dataset">Iris</a> (our old friend!)</p></li>
+                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Lenses" target="_blank" title="Lenses dataset">Lenses</a><!-- &nbsp;(can also be found in the Weka datasets directory as: contact-lenses.arff) --></p></li>
+                <li><p><a href="https://archive.ics.uci.edu/ml/machine-learning-databases/voting-records/" target="_blank" title="Voting">Voting</a> - Please note that you are trying to predict the political party which is listed as the first column (not last) in the data file.<!-- &nbsp;(can also be found in the Weka datasets directory as: vote.arff) --></p></li>
+            </ol>
+            <p>Optional:</p>
+            <ol>
+                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Credit+Approval" target="_blank" title="Credit Screening">Credit Screening</a></p></li>
+                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Chess+%28King-Rook+vs.+King%29" target="_blank" title="Chess Dataset">Chess</a> (King-pawn vs. King)</p></li>
+            </ol>
+            <p>For each one, experiment with different parameters for the algorithm.</p>
+            <p>For each dataset, you should produce some text version of the decision tree that is induced by your algorithm (which will be submitted in your submission file).</p>
+            <p>In addition, for each one, compare your implementation of the ID3 algorithm to an existing one (e.g., scikit-learn, Weka) and compare/contrast the results.</p>
+            <h3>Questions for Consideration</h3>
+            <ul>
+                <li><p>How should numeric data be handled?</p></li>
+                <li><p>How should missing data be handled?</p></li>
+                <li><p>Would pruning be helpful? If so, what approach would you use?</p></li>
+            </ul>
+            <h3>Requirements</h3>
+            <p>As always, you are encouraged to go above and beyond and take initiative in your learning. As described in the syllabus, meeting the minimum standard requirements can qualify you for 93%, but going above and beyond is necessary to get 100%. The following are the expectations for a minimum standard, with a few suggestions for going above and beyond.</p>
+            <h4>Minimum Standard Requirements</h4>
+            <ul>
+                <li><p>Implement the basic ID3 decision tree algorithm</p></li>
+                <li><p>Handle nominal and numeric data (if you choose, numeric data can be handled via pre-processing)</p></li>
+                <li><p>Handle missing data</p></li>
+                <li><p>Produce a textual view of your resulting tree</p></li>
+                <li><p>Basic experimentation</p></li>
+                <ul>
+                    <li><p>Use the supplied datasets</p></li>
+                    <li><p>Compare to existing implementations</p></li>
+                </ul>
+            </ul>
+            <h4>Opportunities to go above and beyond:</h4>
+            <ul>
+                <li><p>Explore additional approaches to handle numeric data and/or missing data (e.g., effectiveness of different sizes and boundaries of bins as shown on different data sets; incorporating into the algorithm itself)</p></li>
+                <li><p>Pruning</p></li>
+                <li><p>Experiment on many more datasets (e.g., how does the algorithm behave as the number of instances and/or attributes changes dramatically?)</p></li>
+                <li><p>More robust experiements, such as using many more parameters, configurations, 10-fold cross validation, etc.</p></li>
+                <li><p>Implement a technique to handle splitting on multiple attributes in the same node</p></li>
+                <li><p>Regression</p></li>
+                <li><p>Any other ideas you have</p></li>
+            </ul>
+            <h3>Submission</h3>
+            <p>When complete, push your code to a public GitHub repository and answer the questions in the <a href="./prove04.txt">submission text file</a>. Please fill it out and upload it to I-Learn.</p>
+
+        </article>
+]
+</body>
+
+</html>
