@@ -26,7 +26,7 @@ For questions 2-6, please type "True" or "False" in front of the question number
 
 8. Please select the category you feel best describes your assignment:
 1 - Some attempt was made
-2 - Developing, but signficantly deficient
+2 - Developing, but significantly deficient
 3 - Slightly deficient, but still mostly adequate
 4 - Meets requirements
 5 - Shows creativity and excels above and beyond requirements
