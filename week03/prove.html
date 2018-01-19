@@ -15,7 +15,7 @@
     <article>
 
             <h2>03 Prove : Assignment</h2>
-            <p class="subtitle">kNN with More Interesting Data</p>
+            <p class="subtitle">kNN with (slightly) More Interesting Data</p>
 
             <h3>Objective</h3>
             <p>Be able to use datasets with more interesting data than just the built-in, all numeric datasets.</p>
@@ -24,9 +24,10 @@
             <p>Add to your kNN classifier code from last week. This week, you need to add the ability to work with non-trivial data. In particular you need to add the following functionality:</p>
 
             <ol>
-                <li><p>Read data from CSV files</p></li>
+                <li><p>Read data from text files (e.g., comma- or space-delimited)</p></li>
                 <li><p>Handle non-numeric data</p></li>
                 <li><p>Handle missing data</p></li>
+                <li><p>Use k-fold Cross Validation</p></li>
             </ol>
 
             <p>To help do the following, you should use the library <code>pandas</code> which is a nice data science library that helps with pre-processing. Then, when the dataset is prepared, you'll need to convert it to a plain numpy array (rather than a Pandas DataFrame) to use with your existing code.</p>
@@ -43,34 +44,27 @@
 
             <p>To this end, you should create a separate function to load each dataset. It can (and will) do as many messy things as you'd like, but when it is done, it should return two <code>NumPy</code> arrays, one for the data, and one for the targets.</p>
 
-<!--             <h4>Suggestions</h4>
-
-            <ul>
-                <li><p>Reading data from .csv files - This is SUPER easy with Pandas. If you are writing lots of code to do this, you are probably over-thinking things.</p></li>
-                <li><p>Categorical Data - Check out: for some great tips.</p></li>
-                <li><p>Missing Data - There is not a universal answer here. How should this be treated? Should you ignore these rows? Should you come up with values to fill in? If so, how?</p></li>
-            </ul>
- -->
             <h3>Experiment Guidelines</h3>
             <p>Please use the following datasets:</p>
 
             <ul>
-                <li><p></p></li>
-                <li><p></p></li>
-                <li><p></p></li>
-                <li><p></p></li>
+                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/car+evaluation" target="blank">UCI: Car Evaluation</a> (contains categorical data)</p></li>
+                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/pima+indians+diabetes" target="blank">Pima Indian Diabetes</a> (contains missing values that have been encoded as 0's)</p></li>
+                <li><p><a href="https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data" target="blank">Automobile MPG</a> - Your task here is to predict the MPG column. Notice that this is a regression task, rather than classification, because you are predicting a real-value. Also note that some columns are multi-valued discrete categories, rather than true numeric values, and also that there is some missing data.</p></li>
             </ul>
 
-            <p>For each dataset, use your kNN classifier from last week with varying values for <em>k</em>. Also, if possible, see how your results compare against an off-the-shelf implementation of kNN.</p>
+            <p>For each dataset, use your kNN classifier from last week with varying values for <em>k</em>. Also, compare your results against an off-the-shelf implementation of kNN.</p>
 
+            <p>For each dataset, use k-fold cross validation to compare your results.</p>
 
             <h3>Requirements</h3>
             <p>As always, you are encouraged to go above and beyond and take initiative in your learning. As described in the syllabus, meeting the minimum standard requirements can qualify you for 93%, but going above and beyond is necessary to get 100%. The following are the expectations for a minimum standard, with a few suggestions for going above and beyond.</p>
             <h4>Minimum Standard Requirements</h4>
             <ol>
-                <li><p>Read data from .csv files</p></li>
+                <li><p>Read data from text files</p></li>
                 <li><p>Appropriately handle non-numeric data.</p></li>
                 <li><p>Appropriately handle missing data.</p></li>
+                <li><p>Use of k-Fold Cross Validation</p></li>
                 <li><p>Basic experimentation on the provided datasets.</p></li>
             </ol>
 
@@ -79,7 +73,7 @@
                 <li><p>Explore multiple options for handling non-numeric data, comparing the results of each approach.</p></li>
                 <li><p>Explore multiple options for handling missing data, comparing the results of each approach.</p></li>
                 <li><p>Experimentation with several additional data sets.</p></li>
-                <li><p>Using data that comes in a more complex manner than a simple downloadable .csv file.</p></li>
+                <li><p>Using data that comes in a more complex manner than a simple downloadable comma- or space-delimited file.</p></li>
                  <li><p>Any other ideas you have.</p></li>
             </ul>
 
