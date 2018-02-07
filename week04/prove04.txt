@@ -3,32 +3,29 @@ When your assignment is complete, please answer the questions in this text file 
 
 1. Please provide a link to your classifier in your public GitHub repo.
 
+
 2. Briefly describe your overall approach to the task and highlight the most difficult part of this assignment.
 
-3. Briefly describe how you handled numeric data.
 
-4. Briefly describe your you handled missing data.
+3. Describe the dataset that you used.
 
-5. Describe your results for the Iris data set. (e.g., What was the size of the tree? How did your implementation compare to existing implementations? How did your decision tree compare to your kNN classifier)
 
-6. Include a textual representation of the tree your algorithm produced for the iris dataset.
+4. Describe your results on this dataset. (e.g., What was the size of the tree? How did your implementation compare to existing implementations? How did your decision tree compare to your kNN classifier)
 
-7. Describe your results for the Lenses data set. (e.g., What was the size of the tree? How did your implementation compare to existing implementations?)
 
-8. Include a textual representation of the tree your algorithm produced for the Lenses dataset.
+5. Include a textual representation of the tree your algorithm produced for the iris dataset.
 
-9. Describe your results for the Voting data set. (e.g., What was the size of the tree? How did your implementation compare to existing implementations?)
 
-10. Include ___a portion of___ the representation of the tree your algorithm produced for the Voting dataset.
+6. If applicable, please describe anything you did to go above and beyond and the results you saw.
 
-11. If applicable, please describe anything you did to go above and beyond and the results you saw.
 
-12. Please select the category you feel best describes your assignment:
+7. Please select the category you feel best describes your assignment:
 A - Some attempt was made
 B - Developing, but significantly deficient
 C - Slightly deficient, but still mostly adequate
 D - Meets requirements
 E - Shows creativity and excels above and beyond requirements
 
-13. Provide a brief justification (1-2 sentences) for selecting that category.
+8. Provide a brief justification (1-2 sentences) for selecting that category.
+
 
