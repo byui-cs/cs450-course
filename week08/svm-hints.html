@@ -2,51 +2,56 @@
 <html>
 
 <head>
-    <title>CS 450 - Prepare</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 450 - Prove</title>
+    <link rel="stylesheet" type="text/css" href="../course/style2018.css" />
 </head>
 
 <body>
-    <div id= "main" class="splash">
+<div id="courseTitle">
+    <span class="icon-byui-logo"></span>
+    <h1>Machine Learning &amp; Data Mining | CS 450</h1>
+</div>
+    <article>
 
-<!--         <div id="header">
-            <img class="banner" alt="CS 450 Banner" title="CS 450 Banner" src="../course/cs450.jpg" />
-        </div>
- -->
-        <article>
+            <h2>Helpful Hints for using SVMs in R</h2>
 
-            <h1>Helpful Hints for using SVMs in R</h1>
+            <h3>Overview</h3>
 
             <p>As noted, you may use any implementation of the SVM algorithm that you choose, and I would recommend reading over <a href="http://en.wikibooks.org/wiki/Data_Mining_Algorithms_In_R/Classification/SVM" target="_blank" title="SVM Tutorial">this tutorial</a>, which will walk you through the process of how to use the LIBSVM library.</p>
+
+            <h3>Hints</h3>
             <p>A few additionally notes that may be helpful.</p>
             <ul>
-                <li>To install the LIBSVM package you need to run:</li>
+                <li><p>To install the LIBSVM package you need to run:</p></li>
                 <ul>
-                    <li><code>install.packages('e1071', dependencies = TRUE)</code></li>
+                    <li><p><code>install.packages('e1071', dependencies = TRUE)</code></p></li>
                 </ul>
-                <li>Then, to load it, you run:</li>
+                <li><p>Then, to load it, you run:</p></li>
                 <ul>
-                    <li><code>library (e1071)</code></li>
+                    <li><p><code>library (e1071)</code></p></li>
                 </ul>
-                <li>The RBF kernel to experiment with is called "radial"</li>
-                <li>If the column you are trying to predict is numeric, the SVM algorithm will default to regression. You can force it to use classification with a type="C" parameter.</li>
-                <li>In order to use the <code>testset[,-2]</code> notation, you need to know which index your class value is, and remember that it is 1-based.</li>
-                <li>The tutorial above shows you how to create a confusion matrix with a command such as: <code>confusion_matrix&nbsp;&lt;- table(pred = prediction, true = testset[,2])</code></li>
-                <li>You can also compute the accuracy using something like the following (assuming the dataset is "vowel_test" and the column of interest is called "Class":</li>
+
+                <li><p>The RBF kernel to experiment with is called "radial"</p></li>
+
+                <li><p>If the column you are trying to predict is numeric, the SVM algorithm will default to regression. You can force it to use classification with a type="C" parameter.</p></li>
+
+                <li><p>In order to use the <code>testset[,-2]</code> notation, you need to know which index your class value is, and remember that it is 1-based. Please note that in Python "-2" means, two from the end. In R, "-2" means, everything except 2.</p></li>
+
+                <li><p>The tutorial above shows you how to create a confusion matrix with a command such as: <code>confusion_matrix&nbsp;&lt;- table(pred = prediction, true = testset[,2])</code></p></li>
+                <li><p>You can also compute the accuracy using something like the following (assuming the dataset is "vowel_test" and the column of interest is called "Class":</p></li>
                 <ul>
-                    <li><code>agreement = prediction == vowel_test$Class</code></li>
-                    <li><code>accuracy = prop.table(table(agreement))</code></li>
+                    <li><p><code>agreement &lt;- prediction == vowel_test$Class</code></p></li>
+                    <li><p><code>accuracy &lt;- prop.table(table(agreement))</code></p></li>
                 </ul>
-                <li>At the risk of making this assignment too easy, and not helping you learn R as well as you should. You might also consider: <a href="./450-07-svm-hints_part2.html">even more helpful hints for using SVMs in R</a>.</li>
+                <li><p>At the risk of making this assignment too easy, and not helping you learn R as well as you should. You might also consider: <a href="./svm-hints-part2.html">even more helpful hints for using SVMs in R</a>.</p></li>
             </ul>
 
-
-
-
-
         </article>
-    </div>
 
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 

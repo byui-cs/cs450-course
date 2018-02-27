@@ -2,24 +2,23 @@
 <html>
 
 <head>
-    <title>CS 450 - Prepare</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 450 - Prove</title>
+    <link rel="stylesheet" type="text/css" href="../course/style2018.css" />
 </head>
 
 <body>
-    <div id= "main" class="splash">
+<div id="courseTitle">
+    <span class="icon-byui-logo"></span>
+    <h1>Machine Learning &amp; Data Mining | CS 450</h1>
+</div>
+    <article>
 
-<!--         <div id="header">
-            <img class="banner" alt="CS 450 Banner" title="CS 450 Banner" src="../course/cs450.jpg" />
-        </div>
- -->
-        <article>
-
-            <h1>Even More Helpful Hints for using SVMs in R</h1>
+            <h2>Even More Helpful Hints for using SVMs in R</h2>
 
             <p>Here is an R script that trains an SVM on the Iris data set:</p>
 
-<div class="code">
+<pre><code class="r">
 #The first time through, you'll need to install the LIBSVM package:
 #install.packages('e1071', dependencies = TRUE);
 
@@ -33,46 +32,49 @@ data(iris)
 
 # For your assignment, you'll need to read from a CSV file.
 # Conveniently, there is a read.csv() function that can be used like so:
-# myDataSet = read.csv(fileName, head=TRUE, sep=",")
+# myDataSet <- read.csv(fileName, head=TRUE, sep=",")
 
 
 # Partition the data into training and test sets
 # by getting a random 30% of the rows as the testRows
-allRows = 1:nrow(iris)
-testRows = sample(allRows, trunc(length(allRows) * 0.3))
+allRows <- 1:nrow(iris)
+testRows <- sample(allRows, trunc(length(allRows) * 0.3))
 
 # The test set contains all the test rows
-iris_test = iris[testRows,]
+irisTest <- iris[testRows,]
 
 # The training set contains all the other rows
-iris_train = iris[-testRows,]
+irisTrain <- iris[-testRows,]
 
 # Train an SVM model
 # Tell it the attribute to predict vs the attributes to use in the prediction,
 #  the training data to use, and the kernal to use, along with its hyperparameters.
 #  Please note that "Species~." contains a tilde character, rather than a minus
-model = svm(Species~., data = iris_train, kernel="radial", gamma = 0.001, cost = 10)
+model <- svm(Species~., data = irisTrain, kernel = "radial", gamma = 0.001, cost = 10)
 
 # Use the model to make a prediction on the test set
 # Notice, we are not including the last column here (our target)
-prediction = predict(model, iris_test[,-5])
+prediction <- predict(model, irisTest[,-5])
 
 # Produce a confusion matrix
-confusion_matrix = table(pred = prediction, true = iris_test$Species)
+confusionMatrix <- table(pred = prediction, true = irisTest$Species)
 
 # Calculate the accuracy, by checking the cases that the targets agreed
-agreement = prediction == iris_test$Species
-accuracy = prop.table(table(agreement))
+agreement <- prediction == irisTest$Species
+accuracy <- prop.table(table(agreement))
 
 # Print our results to the screen
-print(confusion_matrix)
+print(confusionMatrix)
 print(accuracy)
-</div>
+</code></pre>
 
 
 
         </article>
-    </div>
+    
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
 
 
 </body>
