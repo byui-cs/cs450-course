@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 450 - Hints</title>
+    <link rel="stylesheet" type="text/css" href="../course/style2018.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <span class="icon-byui-logo"></span>
+    <h1>Machine Learning &amp; Data Mining | CS 450</h1>
+</div>
+    <article>
+
+            <h2>Helpful Hints for Clustering in R</h2>
+
+            <h3>Overview</h3>
+            <p>There are many good resources on the Internet that discuss clustering in R. This document is not intended to replace them, or to hold you back from searching and finding them. The intention of this document is to give you context and point you in the right direction in terms of the functions in R that you have at your disposal.</p>
+
+            <h3>Code Examples</h3>
+            <p>Agglomerative Hierarchical Clustering</p>
+
+<pre><code class="r">
+# first compute a distance matrix
+distance = dist(as.matrix(data))
+                
+# now perform the clustering
+hc = hclust(distance)
+                
+# finally, plot the dendrogram
+plot(hc)
+</code></pre>
+
+            <p>Scaling data (normalizing)</p>
+<pre><code class="r">
+data_scaled = scale(data)
+</code></pre>
+
+            <p>Using k-means Clustering</p>
+<pre><code class="r">
+# Cluster into k=5 clusters:
+myClusters = kmeans(data, 5)
+
+# Summary of the clusters
+summary(myClusters)
+
+# Centers (mean values) of the clusters
+myClusters$centers
+
+# Cluster assignments
+myClusters$cluster
+
+# Within-cluster sum of squares and total sum of squares across clusters
+myClusters$withinss
+myClusters$tot.withinss
+
+
+# Plotting a visual representation of k-means clusters
+library(cluster)
+clusplot(data, myClusters$cluster, color=TRUE, shade=TRUE, labels=2, lines=0)</p>
+</code></pre>
+
+            <p>Creating a 2D plot of the clustering</p>
+<pre><code class="r">
+library(cluster)
+clusplot(data, myClusters$cluster, color=TRUE, shade=TRUE, labels=2, lines=0)
+</code></pre>
+
+            <p>A simple for loop in R</p>
+<pre><code class="r">
+table = NULL;
+for (i in 1:10) {
+  table[i] = i * 2
+}
+</code></pre>
+            <p>Remember, the Web is filled with many more examples and tutorials...</p>
+
+        </article>
+
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+
+</html>
