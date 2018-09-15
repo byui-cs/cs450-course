@@ -15,13 +15,13 @@
     <article>
 
             <h2>03 Prove : Assignment</h2>
-            <p class="subtitle">kNN with (slightly) More Interesting Data</p>
+            <p class="subtitle">Using kNN with (slightly) More Interesting Data</p>
 
             <h3>Objective</h3>
-            <p>Be able to use datasets with more interesting data than just the built-in, all numeric datasets.</p>
+            <p>Be able to use a machine learning algorithm with more interesting data than a built-in, all-numeric dataset.</p>
 
             <h3>Instructions</h3>
-            <p>Add to your kNN classifier code from last week. This week, you need to add the ability to work with non-trivial data. In particular you need to add the following functionality:</p>
+            <p>Building on the code you wrote last week, your assignment this week is to read in several different datasets of various types and experiment with kNN on these datasets. In particular, you need to demonstrate your ability to do the following:</p>
 
             <ol>
                 <li><p>Read data from text files (e.g., comma- or space-delimited)</p></li>
@@ -30,7 +30,10 @@
                 <li><p>Use k-fold Cross Validation</p></li>
             </ol>
 
-            <p>To help do the following, you should use the library <code>pandas</code> which is a nice data science library that helps with pre-processing. Then, when the dataset is prepared, you'll need to convert it to a plain numpy array (rather than a Pandas DataFrame) to use with your existing code.</p>
+
+            <p>For the core requirements this week, you are welcome to use an off-the-shelf implementation of kNN.</p>
+
+            <p>To help work with these datasets, you should use the library <code>pandas</code>, which is a nice data science library that helps with pre-processing. Then, when the dataset is prepared, you'll need to convert it to a plain numpy array (rather than a Pandas DataFrame) to use with your prediction algorithms.</p>
 
             <h4>Hard-coded or General-purpose?</h4>
             <p>One question that always comes up when doing this kind of work is how much should your code be general-purpose versus tailed specifically to a particular data. This is a difficult question to answer, and there should be a balance of somewhere in between.</p>
@@ -40,6 +43,7 @@
                 <li><p>We should make it as general-purpose as we can, but</p></li>
                 <li><p>Almost all pre-processing code I have seen is messy and feels hardcoded to that dataset</p></li>
             </ol>
+
             <p>In the real-world, most companies have very specific datasets that they care about, and they aren't interested in trying to make code work on hundreds of others, they just want to get their data in place. With that in mind, our goal should be to decouple the pre-processing logic from our algorithms as much as possible.</p>
 
             <p>To this end, you should create a separate function to load each dataset. It can (and will) do as many messy things as you'd like, but when it is done, it should return two <code>NumPy</code> arrays, one for the data, and one for the targets.</p>
@@ -49,13 +53,15 @@
 
             <ul>
                 <li><p><a href="https://archive.ics.uci.edu/ml/datasets/car+evaluation" target="blank">UCI: Car Evaluation</a> (contains categorical data)</p></li>
-                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/pima+indians+diabetes" target="blank">Pima Indian Diabetes</a> (contains missing values that have been encoded as 0's)</p></li>
+<!--                 <li><p><a href="https://archive.ics.uci.edu/ml/datasets/pima+indians+diabetes" target="blank">Pima Indian Diabetes</a> (contains missing values that have been encoded as 0's)</p></li>
+ -->                
+                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Autism+Screening+Adult" target="_blank">Autism Spectrum Disorder</a> (contains a mix of categorical, binary, and numeric data, and also contains missing data)</p></li>
                 <li><p><a href="https://archive.ics.uci.edu/ml/datasets/auto+mpg" target="blank">Automobile MPG</a> - Your task here is to predict the MPG column. Notice that this is a regression task, rather than classification, because you are predicting a real-value. Also note that some columns are multi-valued discrete categories, rather than true numeric values, and also that there is some missing data.</p></li>
             </ul>
 
-            <p>For each dataset, use your kNN classifier from last week with varying values for <em>k</em>. Also, compare your results against an off-the-shelf implementation of kNN.</p>
+            <p>For each dataset, read it in, handle missing values, text data, etc., appropriately, and then use a kNN classifier with varying values for <em>k</em>.</p>
 
-            <p>For each dataset, use k-fold cross validation to compare your results.</p>
+            <p>For each dataset and configuration, use k-fold cross validation to compare your results.</p>
 
             <h3>Requirements</h3>
             <p>As always, you are encouraged to go above and beyond and take initiative in your learning. As described in the syllabus, meeting the minimum standard requirements can qualify you for 93%, but going above and beyond is necessary to get 100%. The following are the expectations for a minimum standard, with a few suggestions for going above and beyond.</p>
@@ -70,6 +76,7 @@
 
             <h4>Some opportunities to go above and beyond:</h4>
             <ul>
+                <li><p>Get everything to work with your own kNN implementation.</p>
                 <li><p>Explore multiple options for handling non-numeric data, comparing the results of each approach.</p></li>
                 <li><p>Explore multiple options for handling missing data, comparing the results of each approach.</p></li>
                 <li><p>Experimentation with several additional data sets.</p></li>
