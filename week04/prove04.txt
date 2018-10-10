@@ -13,19 +13,16 @@ When your assignment is complete, please answer the questions in this text file 
 4. Describe your results on this dataset. (e.g., What was the size of the tree? How did your implementation compare to existing implementations? How did your decision tree compare to your kNN classifier)
 
 
-5. Include a textual representation of the tree your algorithm produced for the iris dataset.
+5. If applicable, please describe anything you did to go above and beyond and the results you saw.
 
 
-6. If applicable, please describe anything you did to go above and beyond and the results you saw.
-
-
-7. Please select the category you feel best describes your assignment:
+6. Please select the category you feel best describes your assignment:
 A - Some attempt was made
 B - Developing, but significantly deficient
 C - Slightly deficient, but still mostly adequate
 D - Meets requirements
 E - Shows creativity and excels above and beyond requirements
 
-8. Provide a brief justification (1-2 sentences) for selecting that category.
+7. Provide a brief justification (1-2 sentences) for selecting that category.
 
 

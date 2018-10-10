@@ -18,40 +18,102 @@
             <p class="subtitle">Decision Tree Classifier</p>
 
             <h3>Objective</h3>
-            <p>Understand the ID3 Decision Tree algorithm.</p>
-            <p>Please note that you have 2 weeks to implement and experiment with this algorithm. This is because it can be a challenge! Do not put this off until next week. You should try to complete the coding portion this week to leave next week for experimentation.</p>
-            <h3>Instructions</h3>
-            <p>Add to your experiment shell from the previous assignment. Implement a new algorithm, the ID3 Decision Tree.</p>
-            <h3>Experiment Guidelines</h3>
-            <p>After implementing the algorithm, use it to classify a dataset of your choice.</p>
-            <p>Here are some options you might consider:</p>
+            <p>Understand the ID3 Decision Tree algorithm and how to apply it.</p>
+
+            <h3>Choose Your Own Adventure</h3>
+            <p>For this assignment, you can choose one of two options:</p>
+
             <ol>
+                <li><p>Implementation Option - With this option you will implement the algorithm from scratch and get it to work on a straightforward dataset of your choice.</p></li>
+
+                <li><p>Experimentation Option - With this option you will use an off-the-shelf version of the algorithm from the sk-learn library and apply it to several different datasets with different parameter combinations.</p></li>
+            </ol>
+
+            <p>Either of these options is acceptable, and you can earn full credit for the assignment with either choice.</p>
+
+            <h3>Implementation Option</h3>
+
+            <p>Please note that you have 2 weeks for this assignment. This is because it can be a challenge! Do not put this off until next week. You should try to complete the coding portion this week to leave next week for working out the bugs.</p>
+
+            <h4>Instructions</h4>
+            <p>Add to your experiment shell from the previous assignment.</p>
+            <ol>
+
+            <li><p> Implement a new algorithm, the ID3 Decision Tree.</p></li>
+
+            <li><p>After implementing the algorithm, use it to classify a dataset of your choice.</p>
+
+<!--             <p>For whichever dataset you choose, you should experiment with different parameters for the algorithm. Also, you should produce some kind of text version (or some other visualization) of the decision tree that is induced by your algorithm (which will be submitted in your submission file).</p>
+
+ -->            
+            </li>
+
+            <li><p>Compare your implementation of the ID3 algorithm to an existing one (e.g., scikit-learn, Weka) and compare/contrast the results.</p></li>
+
+            <li><p>When complete, push your code to a public GitHub repository and answer the questions in the <a href="./prove04.txt">submission text file</a>. Please fill it out and upload it to I-Learn.</p></li>
+
+        </ol>
+
+            <h3>Experimentation Option</h3>
+            <p>By choosing this option, you will not implement the decision tree algorithm, but will instead work with an off-the-shelf implementation.</p>
+
+            <h4>Instructions</h4>
+            <ol>
+                <li>
+                    <p>Choose at least 3 different datasets to use the decision tree algorithm on.</p>
+                    <p>As you are choosing datasets, make sure that among them you get to handle each of the following:</p>
+                    <ul>
+                        <li><p>Numeric data</p></li>
+                        <li><p>Categorical data</p></li>
+                        <li><p>Missing data</p></li>
+                        <li><p>Classification</p></li>
+                        <li><p>Regression</p></li>
+                    </ul>
+                </li>
+                <li><p>For each dataset, produce some sort of visual representation of a tree that was induced.</p></li>
+                <li><p>For numeric data, try different approaches to binning (e.g., different numbers of bins, and binning by frequency vs. width, etc.). Contrast the results.</p></li>
+                <li><p>For categorical data, try a one-hot strategy and see how it compares to using the category directly.</p></li>
+                <li><p>For missing data, try different approaches and contrast the results.</p></li>
+                <li><p>Try different pruning strategies and note their effectiveness.</p></li>
+                <li>
+                    <p>Prepare a PDF report that includes the results of running the algorithm on the datasets you chose (including results and a visualization of the tree). Also, include discussion of each of the above points (numeric data, missing data, etc.).</p>
+                    <p>Also, include in your report the grade category that best matches your assignment and provide a justification for this choice. </p>
+
+<!--                     <ul>
+                        <li><p>Describe the datasets you chose, include a visual representation of a tree, and highlight the best accuracy you observed and the parameters used to obtain it.</p></li>
+                        <li><p>Describe the approaches you used to handle numeric data and the effect they had.</p></li>
+                        <li><p>Describe the approaches you used to handle categorical data and the effect they had.</p></li>
+                        <li><p>Describe the approaches you used to handle missing data and the effect they had.</p></li>
+                        <li><p>Describe the pruning strategies you used and the effect they had.</p></li>
+                        <li><p>Describe which grade category matches your assignment and provide a justification for this choice.</p></li>
+                    </ul>
+ -->                
+                </li>
+            </ol>
+            
+            <h3>Datasets</h3>
+            <p>For either option, the choice of datasets is up to you. In addition to datasets from previous assignments, you might consider:</p>
+            <ul>
                 <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Iris" target="_blank" title="Iris Dataset">Iris</a> (our old friend!)</p></li>
                 <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Lenses" target="_blank" title="Lenses dataset">Lenses</a><!-- &nbsp;(can also be found in the Weka datasets directory as: contact-lenses.arff) --></p></li>
                 <li><p><a href="https://archive.ics.uci.edu/ml/machine-learning-databases/voting-records/" target="_blank" title="Voting">Voting</a> - Please note that you are trying to predict the political party which is listed as the first column (not last) in the data file.<!-- &nbsp;(can also be found in the Weka datasets directory as: vote.arff) --></p></li>
                 <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Credit+Approval" target="_blank" title="Credit Screening">Credit Screening</a></p></li>
                 <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Chess+%28King-Rook+vs.+King%29" target="_blank" title="Chess Dataset">Chess</a> (King-pawn vs. King)</p></li>
-            </ol>
-            <p>For whichever dataset you choose, you should experiment with different parameters for the algorithm. Also, you should produce some kind of text version (or some other visualization) of the decision tree that is induced by your algorithm (which will be submitted in your submission file).</p>
-            <p>In addition, compare your implementation of the ID3 algorithm to an existing one (e.g., scikit-learn, Weka) and compare/contrast the results.</p>
-
-            <h3>Questions for Consideration</h3>
-            <ul>
-                <li><p>How should numeric data be handled?</p></li>
-                <li><p>How should missing data be handled?</p></li>
-                <li><p>Would pruning be helpful? If so, what approach would you use?</p></li>
             </ul>
-            <h3>Requirements</h3>
-            <p>As always, you are encouraged to go above and beyond and take initiative in your learning. As described in the syllabus, meeting the minimum standard requirements can qualify you for 93%, but going above and beyond is necessary to get 100%. The following are the expectations for a minimum standard, with a few suggestions for going above and beyond.</p>
-            <h4>Minimum Standard Requirements</h4>
+
+
+
+            <h4>Requirements</h4>
+            <p>As always, you are encouraged to go above and beyond and take initiative in your learning. As described in the syllabus, meeting the minimum standard requirements can qualify you for 93%, but going above and beyond is necessary to get 100%.</p>
+
+<!--             <p>Minimum Standard Requirements:</p>
             <ul>
                 <li><p>Implement the basic ID3 decision tree algorithm</p></li>
-                <li><p>Produce a textual view of your resulting tree</p></li>
                 <li><p>Basic experimentation</p></li>
-                <li><p>Compare to existing implementations</p></li>
+                <li><p>Compare to existing implementation</p></li>
             </ul>
 
-            <h4>Opportunities to go above and beyond:</h4>
+            <p>Some ideas for going above and beyond:</p>
             <ul>
                 <li><p>Explore additional approaches to handle numeric data and/or missing data (e.g., effectiveness of different sizes and boundaries of bins as shown on different data sets; incorporating into the algorithm itself)</p></li>
                 <li><p>Pruning</p></li>
@@ -61,8 +123,10 @@
                 <li><p>Regression</p></li>
                 <li><p>Any other ideas you have</p></li>
             </ul>
+ -->
+
             <h3>Submission</h3>
-            <p>When complete, push your code to a public GitHub repository and answer the questions in the <a href="./prove04.txt">submission text file</a>. Please fill it out and upload it to I-Learn.</p>
+            <p>When complete, submit the appropriate file to I-Learn.</p>
 
         </article>
 ]
