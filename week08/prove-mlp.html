@@ -20,30 +20,29 @@
 
             <h3>Objective</h3>
             <p>Understand Neural Networks, in particular, back-propagation for multi-layer perceptron networks.</p>
+
+            <p>This assignment is the culmination of the previous weeks' work.</p>
             <h3>Instructions</h3>
-            <p>Add to your experiment shell from previous assignments. Implement a multi-layer perceptron neural network.</p>
+            <p>As stated in the previous assignment, you can choose between implementing a neural network or doing in-depth experimenting with a library implementation. Depending on your choice, please complete the following steps in one category or the other. (If you previously started down one path, but have decided to switch to the other option, you should complete the previous week's requirements for that option, and then complete this week's.)</p>
+
+            <h3>Implementation Option</h3>
             <p>Your assignment this week is to <b>finish</b> the neural network you previously started (by converting it to a mult-layer network and adding backpropagation for training), and then to <b>experiment</b> with it on various datasets.</p>
-            <h3>Experiment Guidelines</h3>
-            <p>After implementing the algorithm, use it to classify the following datasets:</p>
-            <ol>
-                <li><p>Iris</p></li>
-                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Pima+Indians+Diabetes" target="_BLANK">Pima Indian Diabetes</a></p></li>
-            </ol>
-            <p>For each one, experiment with different parameters for the algorithm.</p>
-            <p>Also, for each one, also use an existing implementation of a multi-layer perceptron network and compare/contrast your results (Note: in Weka, this is called MultilayerPerceptron under the "functions" category).</p>
+
+            <p>After implementing the algorithm, use it to classify <strong>two</strong> datasets of your choice. For each one, experiment with different hyper-parameters for the algorithm.</p>
+
             <h4>Minimum Standard Requirements</h4>
-            <ul>
-                <li><p>Implement the basic MLP algorithm</p></li>
-                <li><p>Handle nominal and numeric data (if you choose, nominal data can be handled via pre-processing)</p></li>
-                <li><p>Produce a graph of your learner's accuracy on the validation set (or the training set if necessary) per iteration of the algorithm.</p></li>
+            <ol>
+                <li><p>Implement the basic MLP algorithm.</p></li>
+                <li><p>Produce a graph of your learner's accuracy on the validation set (or the training set if necessary) per iteration of the algorithm.</p>
+                    <p>You can use a Python graphing library to do this directly as you go, or if you are more comfortable with something else, you are welcome to output the data to a text file and then use another utility to produce the graph (e.g., Excel, R).</p></li>
+
                 <li><p>Basic experimentation</p></li>
                 <ul>
-                    <li><p>Use the supplied datasets</p></li>
-                    <li><p>Try a few different configurations (# of layers, # of nodes per layer)</p></li>
+                    <li><p>Demonstrate that your algorithm can learn on two different datasets.</p></li>
+                    <li><p>Try various configurations (# of layers, # of nodes per layer)</p></li>
                     <li><p>Produce graphs of the training progress</p></li>
-                    <li><p>Compare overall results to existing implementations of MLP</p></li>
                 </ul>
-            </ul>
+            </ol>
             <h4>Opportunities To Go Above And Beyond:</h4>
             <ul>
                 <li><p>More elaborate stopping criteria</p></li>
@@ -54,7 +53,7 @@
                 <li><p>Using momentum</p></li>
                 <li><p>Any other ideas you have</p></li>
             </ul>
-            <h3>Questions for Consideration</h3>
+<!--             <h3>Questions for Consideration</h3>
             <ul>
                 <li><p>How should categorical data be handled?</p></li>
                 <li><p>How many layers should be in your network?</p></li>
@@ -62,21 +61,65 @@
                 <li><p>How many nodes should be in the output layer (e.g., one? one per class?)?</p></li>
                 <li><p>When should learning be stopped?</p></li>
             </ul>
-            <h3>Submission</h3>
-            <p>When complete, push your code to a public GitHub repository. Then submit a PDF with your answers to the following questions:</p>
+ -->
+            <h3>Experimentation Option</h3>
+            <p>In the previous weeks you should have used a library implementation of a neural network to classify several different datasets of different characteristics.</p>
+            <p>Your assignment this week is to pick one of the datasets that you found to be fairly challenging to get good results on. Then, using this challenging dataset, spend significant time trying different hyper-parameter combinations, to discover the configuration that gives the best results.</p>
+
+            <p>You should consider varying things such as:</p>
+            <ul>
+                <li><p>Number of layers</p></li>
+                <li><p>Number of nodes per layer</p></li>
+                <li><p>Stopping criteria / length of training time</p></li>
+                <li><p>Using momentum</p></li>
+                <li><p>Using different activation functions</p></li>
+                <li><p>Any other parameters provided by your library</p></li>
+            </ul>
+
+            <p></p>
+
+            <h4>Minimum Standard Requirements</h4>
+            <p>Including the work done in this week and the previous weeks, you should then have completed at a minimum:</p>
+
             <ol>
-                <li><p>Please submit a link to your GitHub repository for your class.</p></li>
-                <li><p>Describe your overall approach to implementing the algorithm in code. How are your classes/data structures organized? How do you keep track of the necessary pieces for back-propagation.</p></li>
-                <li><p>Describe the part of the assignment that gave you the most trouble, and how you overcame it.</p></li>
-                <li><p>Produce at least one graph to show the training progress for the Iris dataset.</p></li>
-                <li><p>Compare your results on the Iris dataset to those of an existing implementation.</p></li>
-                <li><p>Produce at least one graph to show the training progress for the Diabetes dataset.</p></li>
-                <li><p>Compare your results on the Diabetes dataset to those of an existing implementation.</p></li>
-                <li><p>Describe any efforts you made to go above and beyond.</p></li>
-                <li><p>
-                    <p>Please state which category you feel best describes your assignment and give a 1-2 sentence justification for your choice: A) Some attempt was made, B) Developing, but significantly deficient, C) Slightly deficient, but still mostly adequate, D) Meets requirements, E) Shows creativity and excels above and beyond requirements.</p>
-                </p></li>
+                <li><p>Successfully used a library implementation of a neural network to make predictions.</p></li>
+                <li><p>Done the necessary preprocessing work to prepare several different datasets for this library.</p></li>
+                <li><p>Used datasets that show you can work with various kinds of input data (e.g., categorical vs numeric, etc.).</p></li>
+                <li><p>Made predictions using both regression and classification.</p></li>
+                <li><p>Performed significant hyper-parameter experimentation and tuning for a challenging dataset.</p></li>
             </ol>
+
+            <h3>Submission</h3>
+
+            <p>Regardless of the option you chose for this assignment (experimentation or implementation), you need to complete a brief report demonstrating your work and the results you obtained. This report should be in <strong>PDF</strong> format.</p>
+
+            <p>Please include the following in your report.</p>
+
+            <ol>
+                <li><p><span class="subtitle">Source code</span></p>
+                    <p>Provide a link to your GitHub repository for the code you wrote.</p></li>
+                <li><p><span class="subtitle">Approach</span></p>
+                    <p>Describe your overall approach to the assignment.</p><p>For example, if you chose the implementation option, how did you store the necessary information? If you chose the experimentation option, what library did you choose?</p></li>
+                <li><p><span class="subtitle">Challenges</span></p>
+                    <p>Describe the part of the assignment that gave you the most trouble, and how you overcame it.</p></li>
+
+                <li><p><span class="subtitle">Results</span></p>
+                    <p>Make sure to include evidence (description, graphs, results, etc.) that demonstrate each of the items listed in the minimum standards above.</p></li>
+
+                <li><p><span class="subtitle">Above and Beyond</span></p>
+                    <p>Describe any efforts you made to go above and beyond.</p></li>
+                <li><p><span class="subtitle">Assessment</span></p>
+                    <p>Please state which category you feel best describes your assignment and give a 1-2 sentence justification for your choice:</p>
+                        <ul>
+                            <li><p>A) Some attempt was made</p></li>
+                            <li><p>B) Developing, but significantly deficient</p></li>
+                            <li><p>C) Slightly deficient, but still mostly adequate</p></li>
+                            <li><p>D) Meets requirements</p></li>
+                            <li><p>E) Shows creativity and excels above and beyond requirements.</p></li>
+                        </ul>
+                </li>
+            </ol>
+
             <p>Please note that in order to accommodate the graphs that you will need to have in your write up, this will not be an plain text submission file like the other assignments, but rather, you will upload your own PDF document.</p>
 
         </article>

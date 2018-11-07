@@ -358,3 +358,7 @@ p.subtitle {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+span.subtitle {
+	font-weight: bold;
+}
