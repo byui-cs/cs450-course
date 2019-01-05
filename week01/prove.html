@@ -76,7 +76,7 @@ classifier.fit(data_train, targets_train)
 
             <h4>4. Use that model to make predictions</h4>
 
-                <p>Use the model returned by the <code>fit()</code> function in the last step to predict the targets for your test set data. This can be done with the <code>.predict()</code> function on the model that is returned:</p>
+                <p>Use the model created by the <code>fit()</code> function in the last step to predict the targets for your test set data. This can be done with the <code>.predict()</code> function on the classifier (or on the model that is returned by the fit function):</p>
 
 <pre><code class="python">
 targets_predicted = classifier.predict(data_test)
@@ -85,16 +85,17 @@ targets_predicted = classifier.predict(data_test)
                 <p>Then, compare the predicted targets to the actual targets and output the resulting accuracy.</p>
 
             <h4>5. Implement your own new "algorithm"</h4>
-                <p>Once you have the above components working, implement your first "learning algorithm," a HardCodedClassifier that always predicts the same class.</p>
+                <p>Once you have the above components working, implement your first "learning algorithm," a HardCodedClassifier that always predicts the same class. In other words, if you are predicting fraudulent versus acceptable credit-card transactions, it would simply always predict "fraudulent." Or, in the case of the Iris dataset, it would always predict the same type of iris (e.g., Setosa, but it doesn't matter which one, just that it always predicts the same one).</p>
+
                 <p>You should create a new class, <code>HardCodedClassifier</code>, that has a <code>.fit()</code> method that accepts a dataset and "learns" (which in this case means it does nothing), and which also has a <code>.predict()</code> method that takes the test data and returns targets. These should be able to be used just like an sk-learn algorithm, like so:</p>
 
 <pre><code class="python">
 classifier = HardCodedClassifier()
 classifier.fit(data_train, targets_train)
-targets_predicted = model.predict(data_test)
+targets_predicted = classifier.predict(data_test)
 </code></pre>
 
-                <p>You don't need anything intelligent in your HardCoded classes. The <code>.fit()</code>method can just be empty, or print something to the screen. And the model's <code>.predict()</code> method can just loop through the data and return a list of 0's as a prediction for each instance. In other words, it always predicts "iris-setosa" or something like that.</p>
+                <p>You don't need anything intelligent in your HardCoded classes. The <code>.fit()</code>method can just be empty, or print something to the screen. And the <code>.predict()</code> method can simply loop through the data and return a list of 0's as a prediction, one for each instance. In other words, it always predicts "iris-setosa" or something like that.</p>
 
                 <p>Instantiate your new classifier, "train" it with your training data, then use it to make predictions on the test data.</p>
 
@@ -106,10 +107,10 @@ targets_predicted = model.predict(data_test)
             <h4>Minimum Standard Requirements</h4>
             <ul>
                 <li><p>The Iris dataset can be loaded</p></li>
-                <li><p>The order of the instances can be randomized</p></li>
+                <li><p>The order of the instances is randomized</p></li>
                 <li><p>The dataset can be split into a training / test set</p></li>
-                <li><p>The GaussianNB algorithm can be run on the Iris dataset, make predictions, and get results.</p></li>
-                <li><p>A HardCodedClassifier and HardCodedModel class are created with fit and predict methods</p></li>
+                <li><p>The GaussianNB algorithm can be run on the Iris dataset, and be used to make predictions and get results.</p></li>
+                <li><p>A HardCodedClassifier class is created with fit and predict methods.</p></li>
                 <ul>
                     <li><p>Fit accepts training data and targets</p></li>
                     <li><p>Predict makes a prediction for the data it receives (at this point, it always predicts the same answer)</p></li>
@@ -128,7 +129,11 @@ targets_predicted = model.predict(data_test)
             
             <h3>Submission</h3>
 
-            <p>When complete, push your code to a public GitHub repository and answer the questions in the <a href="prove01.txt" target="_blank">submission form</a>. Then submit this text file to I-Learn.</p>
+            <p>When complete, you need to upload two things (possibly more than two files) to I-Learn:</p>
+            <ol>
+                <li><p>Download the <a href="prove01.txt" target="_blank">assignment submission form</a>, answer its questions and upload this form to I-Learn.</p></li>
+                <li><p>Submit your source code to I-Learn. If you would prefer, you can post your source code to a Git repository and provide a link in your submission form.</p></li>
+            </ol>
         </article>
 
    <script src="../course/js/highlight/highlight.pack.js"></script>

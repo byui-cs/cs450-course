@@ -2,7 +2,7 @@ When your assignment is complete, please answer the questions in this text file 
 
 Name:
 
-1. Please provide the URL of your public GitHub repository.
+1. If you did not include your source code in your I-Learn submission, please provide the URL of your public GitHub repository.
 
 
 
@@ -12,7 +12,7 @@ For questions 2-6, please type "True" or "False" in front of the question number
 
 3. My experiment shell randomizes the order of the instances (making sure to keep instances lined up with their appropriate targets) it and splits the data into a training set (70%) and a test set (30%)?
 
-4. I have GaussianNB algorithm on the dataset and received results.
+4. I have run the GaussianNB classifier on the dataset and received results.
 
 5. I have created a HardCoded classifier class with two methods: fit and predict. The fit method accepts training data (including targets). The predict method returns a prediction or classification for each instance it receives.
 
