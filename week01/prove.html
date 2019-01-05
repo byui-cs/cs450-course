@@ -71,7 +71,7 @@ print(iris.target_names)
 
 <pre><code class="python">
 classifier = GaussianNB()
-model = classifier.fit(data_train, targets_train)
+classifier.fit(data_train, targets_train)
 </code></pre>
 
             <h4>4. Use that model to make predictions</h4>
@@ -79,22 +79,22 @@ model = classifier.fit(data_train, targets_train)
                 <p>Use the model returned by the <code>fit()</code> function in the last step to predict the targets for your test set data. This can be done with the <code>.predict()</code> function on the model that is returned:</p>
 
 <pre><code class="python">
-targets_predicted = model.predict(data_test)
+targets_predicted = classifier.predict(data_test)
 </code></pre>
 
                 <p>Then, compare the predicted targets to the actual targets and output the resulting accuracy.</p>
 
             <h4>5. Implement your own new "algorithm"</h4>
                 <p>Once you have the above components working, implement your first "learning algorithm," a HardCodedClassifier that always predicts the same class.</p>
-                <p>You should create a new class, <code>HardCodedClassifier</code>, that has a <code>.fit()</code> method that takes the data and targets and returns a <code>HardCodedModel</code> object, which has a <code>.predict()</code> method that takes the test data and returns targets. These should be able to be used just like an sk-learn algorithm, like so:</p>
+                <p>You should create a new class, <code>HardCodedClassifier</code>, that has a <code>.fit()</code> method that accepts a dataset and "learns" (which in this case means it does nothing), and which also has a <code>.predict()</code> method that takes the test data and returns targets. These should be able to be used just like an sk-learn algorithm, like so:</p>
 
 <pre><code class="python">
 classifier = HardCodedClassifier()
-model = classifier.fit(data_train, targets_train)
+classifier.fit(data_train, targets_train)
 targets_predicted = model.predict(data_test)
 </code></pre>
 
-                <p>You don't need anything intelligent in your HardCoded classes. The <code>.fit()</code>method can just return an empty new model. And the model's <code>.predict()</code> method can just loop through the data and return a list of 0's as a prediction for each instance. In other words, it always predicts "iris-setosa" or something like that.</p>
+                <p>You don't need anything intelligent in your HardCoded classes. The <code>.fit()</code>method can just be empty, or print something to the screen. And the model's <code>.predict()</code> method can just loop through the data and return a list of 0's as a prediction for each instance. In other words, it always predicts "iris-setosa" or something like that.</p>
 
                 <p>Instantiate your new classifier, "train" it with your training data, then use it to make predictions on the test data.</p>
 

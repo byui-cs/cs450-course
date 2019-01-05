@@ -17,7 +17,7 @@
 
             <h2>01 Prepare : Programming Tools</h2>
 
-            <h3>Git and GitHub</h3>
+            <!-- <h3>Git and GitHub</h3>
             <p>This semester, we will be using Git and GitHub to share files. It is expected that you are either familiar with Git already or can come up to speed on your own. You will not need to know everything that can be done with Git, but you will need to know the basics. If you are new to Git or need a refresher, the following may be helpful:</p>
 
             <ul>
@@ -25,7 +25,7 @@
                 <li>
                     <p><a href="http://git-scm.com/docs/gittutorial" target="_blank">Official Git documentation</a> - This is actually pretty accessible and helpful compared to the official documentation for most technologies.</p>
                 </li>
-            </ul>
+            </ul> -->
 
             <h3>Python</h3>
 
@@ -34,7 +34,19 @@
             <p>This is not a "coding" course <em>per se</em>, and at this point in your education it is assumed that you can come up to speed on a new programming language on your own. But, here are a few suggestions that may be beneficial:</p>
 
             <h4>Installing Python and Libraries</h4>
+            <p>There are many different options for downloading and running Python and for authoring and debugging Python programs. It is your choice what tool set and configuration to use, however, based on previous semesters, the following is the recommended configuration for this class:</p>
+
             <ul>
+                <li><p>Runtime: Python 3 (Please note that Python 2 and 3 are similar but have slight differences.)</p></li>
+                <li><p>Libraries: NumPy, Pandas, sk-learn, SciPy, matplotlib</p></li>
+                <li><p>Editor: Spyder</p></li>
+            </ul></p> 
+
+            <p>The Spyder IDE is designed for data science work (and has a similar style as RStudio if you are familiar with that), whereas others (e.g., PyCharm) are fine for data science work, but are specifically designed with more general software development in mind.</p>
+
+            <p>The easiest way to get Spyder, Python 3, and the needed libraries is to download and use the Anaconda distribution which includes all of these items. You can find links and instructions to download and install it from the Spyder homepage, <a href="https://www.spyder-ide.org/" target="_blank">https://www.spyder-ide.org/</a> .</p>
+
+            <!-- <ul>
                 <li><p>We will use NumPy, SciPy, matplotlib, pandas, and sk-learn this semester. You are welcome to get them all as part of a distribution like <a href="http://continuum.io/downloads" target="_blank">Anaconda</a>, but I find the pip installer to be really easy to use, where you can just type commands like the following in your command terminal:</p></li>
 
 <pre><code class="bash">
@@ -43,53 +55,46 @@ pip install matplotlib
 ...
 </code></pre>
 
-            </ul>
+            </ul> -->
                 
             <h4>Python Syntax</h4>
 
+            <p>There are lots of Python tutorials out there that cover its syntax at varying levels of complexity. For an experienced programmer that just wants to see the syntax and know some nuances, I find the <a href="http://www.scipy-lectures.org/intro/index.html" target="_blank">SciPy documentation</a> to be a nice tutorial. It is not very verbose, but systemically walks through topics and shows syntax examples. I would recommend reading at least:</p>
+
             <ul>
-                <li><p>There are lots of Python tutorials out there that cover its syntax at varying levels of complexity. For an experienced programmer that just wants to see the syntax and know some nuances, I find the <a href="http://www.scipy-lectures.org/intro/index.html" target="_blank">SciPy documentation</a> to be a nice tutorial. It is not very verbose, but systemically walks through topics and shows syntax examples. I would recommend reading at least:</p>
-
-                    <ul>
-                        <li><p><a href="http://www.scipy-lectures.org/intro/language/python_language.html" target="_blank">1.2 The Python language</a></p></li>
-                        <li><p><a href="http://www.scipy-lectures.org/intro/numpy/index.html" target="_blank">1.3 NumPy</a></p></li>
-                    </ul>
-
-                </li>
-                <li><p>Another nice resource that explains the concepts along with the syntax that I use in other courses is the interactive <a href="http://interactivepython.org/runestone/static/thinkcspy/index.html" target="_blank">How to Think Like a Computer Scientist</a> online text. It is much more gentle/instructive, and would likely be a good resource if you want to walk through a certain topic in more detail, where you could jump right to a specific chapter. For example, you might consider:</p>
-
-                    <ul>
-                        <li><p><a href="http://interactivepython.org/runestone/static/thinkcspy/Functions/toctree.html" target="_blank">Chapter 6 - Functions</a></p></li>
-                        <li><p><a href="http://interactivepython.org/runestone/static/thinkcspy/Lists/toctree.html" target="_blank">Chapter 10 - Lists</a></p></li>                        
-                        <li><p><a href="http://interactivepython.org/runestone/static/thinkcspy/ClassesBasics/toctree.html" target="_blank">Chapter 16 - Classes</a></p></li>
-                    </ul>
-
-                </li>
-
-                <li><p>Of course, searching the Internet itself is the best thing to do when you have a specific question. There are lots of great articles on StackOverflow and other Q&amp;A sites. Searching the Internet will be especially important when you are looking for particular functionality from a library.</p></li>
-
-                <!-- <li><p>A more interactive and perhaps more gentle introduction to Python can be found at <a href="http://www.codecademy.com/tracks/python" target="_blank">CodeAcademy</a>. It can also walk you through the basics of the Python language.</p></li>
- -->
+                <li><p><a href="http://www.scipy-lectures.org/intro/language/python_language.html" target="_blank">1.2 The Python language</a></p></li>
+                <li><p><a href="http://www.scipy-lectures.org/intro/numpy/index.html" target="_blank">1.3 NumPy</a></p></li>
             </ul>
-            <h4>Development Environments</h4>
+
+            <p>Another nice resource that explains the concepts along with the syntax that I use in other courses is the interactive <a href="http://interactivepython.org/runestone/static/thinkcspy/index.html" target="_blank">How to Think Like a Computer Scientist</a> online text. It is much more gentle/instructive, and would likely be a good resource if you want to walk through a certain topic in more detail, where you could jump right to a specific chapter. For example, you might consider:</p>
+
+                <ul>
+                    <li><p><a href="http://interactivepython.org/runestone/static/thinkcspy/Functions/toctree.html" target="_blank">Chapter 6 - Functions</a></p></li>
+                    <li><p><a href="http://interactivepython.org/runestone/static/thinkcspy/Lists/toctree.html" target="_blank">Chapter 10 - Lists</a></p></li>                        
+                    <li><p><a href="http://interactivepython.org/runestone/static/thinkcspy/ClassesBasics/toctree.html" target="_blank">Chapter 16 - Classes</a></p></li>
+                </ul>
+
+            <p>Of course, searching the Internet itself is the best thing to do when you have a specific question. There are lots of great articles on StackOverflow and other Q&amp;A sites. Searching the Internet will be especially important when you are looking for particular functionality from a library.</p>
+
+            <!-- <h4>Development Environments</h4>
             <ul>
 
                 <li><p>You can use whatever IDE you prefer (or none at all, see: <a href="https://xkcd.com/378/" target="_blank">https://xkcd.com/378/</a> ), but one good one you might consider is <a href="https://www.jetbrains.com/pycharm/download/" target="_blank">PyCharm</a>. The free community edition is great for our needs.</p></li>
-            </ul>
+            </ul> -->
             <h3>Good Programming Practice</h3>
-            <p>While it will not be strictly enforced, as in a programming course, you are encouraged to use good style, code conventions, and programming practice.</p>
-            <p>The <a href="https://google.github.io/styleguide/pyguide.html" target="_blank">Google Python Style Guide</a> is a good guide to base your code on. (Be aware that the textbook author does not adhere to these principles).</p>
-            <p>Finally, as a matter of good practice, be aware that if you put statements directly in your python files, it causes side effects when your code is imported into other files because that code is run. To avoid this, it is recommended that you structure your files with a main method as follows. This will ensure that your main method is run if your file is invoked directly and not if it is included in another module.</p>
+            <p>While it will not be specifically enforced, as in a programming course, you are strongly encouraged to use good style, code conventions, and programming practice.</p>
+            <p>The <a href="https://google.github.io/styleguide/pyguide.html" target="_blank">Google Python Style Guide</a> is a nice guide to base your code on. (Be aware that the textbook author does not adhere to these principles).</p>
+
+            <p>Finally, as heads up, be aware that if you put statements directly in your python files, it causes side effects when your code is imported into other files because that code is run. Thus, if you are writing functions that may be included in other programs, good programming practice is to use a main function as follows. This will ensure that your main function is run if your file is invoked directly and not if it is included in another module.</p>
             <p>
 
 <pre><code class="python">
-import sys
-
-def main(argv):
+def main():
     print "Hello World"
 
 if __name__ == "__main__":
-    main(sys.argv)
+    # This will only be run if this file is the one that was run directly.
+    main()
 </code></pre>
 
 
