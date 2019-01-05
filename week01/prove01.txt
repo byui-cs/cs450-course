@@ -1,7 +1,5 @@
 When your assignment is complete, please answer the questions in this text file and upload it to I-Learn.
 
-Name:
-
 1. If you did not include your source code in your I-Learn submission, please provide the URL of your public GitHub repository.
 
 

@@ -22,7 +22,7 @@
             <h3>Instructions</h3>
             <p>Add to your experiment shell from the previous assignment. Implement a new algorithm, <em>k</em>-Nearest Neighbors, that can be configured for any size of neighborhood, <em>k</em>. To classify an instance, the algorithm should identify its <em>k</em> nearest neighbors and use their labels to determine the target classification.</p>
 
-            <p>For this week, you only need to have it work for the Iris dataset, then next week, we will work with more interesting/complex data.</p>
+            <p>For this assignment, you only need to run the algorithm on the Iris dataset, then next week, we will work with more interesting/complex data.</p>
 
             <p>One thing that you do need to account for, is the fact that the different attributes have different ranges/scales for their data. You need to do something to account for this appropriately.</p>
 
@@ -40,12 +40,12 @@ from sklearn.neighbors import KNeighborsClassifier
 # ...
 
 classifier = KNeighborsClassifier(n_neighbors=3)
-model = classifier.fit(train_data, train_target)
-predictions = model.predict(test_data)
+classifier.fit(train_data, train_target)
+predictions = classifier.predict(test_data)
 </code></pre>
 
-            <p>Another option is to download <a href="http://www.cs.waikato.ac.nz/ml/weka/" target="_blank">Weka</a>, which is a free, open-source Java implementation of many learning and data processing algorithms. It is not pretty or fancy, but does have a GUI that you can use to play around with these algorithms.</p>
-
+            <!-- <p>Another option is to download <a href="http://www.cs.waikato.ac.nz/ml/weka/" target="_blank">Weka</a>, which is a free, open-source Java implementation of many learning and data processing algorithms. It is not pretty or fancy, but does have a GUI that you can use to play around with these algorithms.</p>
+ -->
                 </li>
             </ol>
             
@@ -70,7 +70,7 @@ predictions = model.predict(test_data)
                  <li><p>Basic experimentation:</p>
                     <ul>
                         <li><p>Play with different values of K</p></li>
-                        <li><p>Compare to existing implementations</p></li>
+                        <li><p>Compare to an existing implementation</p></li>
                     </ul>
                 </li>
             </ol>
@@ -92,8 +92,12 @@ predictions = model.predict(test_data)
 
 
             <h3>Submission</h3>
-            <p>When complete, push your code to a public GitHub repository and answer the questions in the <a href="./prove02.txt">submission txt file</a>. Please fill it out and upload it to I-Learn.</p>
-
+            <p>When complete, you need to upload two things (possibly more than two files) to I-Learn:</p>
+            <ol>
+                <li><p>Download the <a href="prove02.txt" target="_blank">assignment submission form</a>, answer its questions and upload this form to I-Learn.</p></li>
+                <li><p>Submit your source code to I-Learn. If you would prefer, you can post your source code to a Git repository and provide a link in your submission form.</p></li>
+            </ol>
+            
         </article>
 
    <script src="../course/js/highlight/highlight.pack.js"></script>
