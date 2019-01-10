@@ -131,7 +131,7 @@ def run_part3():
     print(data[:,-2:])
 
     # 3.5
-    print(data[:,2])
+    print(data[:,1])
 
 def main():
     run_part2()
