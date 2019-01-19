@@ -6,19 +6,16 @@ When your assignment is complete, please answer the questions in this text file 
 2. Briefly describe your overall approach to the task and highlight the most difficult part of this assignment.
 
 
-3. Briefly describe your process for handling numeric data on different scales (i.e., normalizing).
+3. Describe your results for the Iris data set. (For example, what level of accuracy did you see for different values of K?)
 
 
-4. Describe your results for the Iris data set. (For example, what level of accuracy did you see for different values of K?)
+4. How did your implementation compare to the existing implementation?
 
 
-5. How did your implementation compare to the existing implementation?
+5. Describe anything you did to go above and beyond the minimum standard requirements.
 
 
-6. Describe anything you did to go above and beyond the minimum standard requirements.
-
-
-7. Please select the category you feel best describes your assignment:
+6. Please select the category you feel best describes your assignment:
 1 - Some attempt was made
 2 - Developing, but significantly deficient
 3 - Slightly deficient, but still mostly adequate
@@ -26,5 +23,5 @@ When your assignment is complete, please answer the questions in this text file 
 5 - Shows creativity and excels above and beyond requirements
 
 
-8. Provide a brief justification (1-2 sentences) for selecting that category.
+7. Provide a brief justification (1-2 sentences) for selecting that category.
 
