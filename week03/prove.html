@@ -21,19 +21,49 @@
             <p>Be able to use a machine learning algorithm with more interesting data than a built-in, all-numeric dataset.</p>
 
             <h3>Instructions</h3>
-            <p>Building on the code you wrote last week, your assignment this week is to read in several different datasets of various types and experiment with kNN on these datasets. In particular, you need to demonstrate your ability to do the following:</p>
+            <p>Building on the code you have written the past two weeks, your assignment this week is to read in several different datasets of various types and experiment with kNN on these datasets. In particular, you need to demonstrate your ability to do the following:</p>
 
             <ol>
                 <li><p>Read data from text files (e.g., comma- or space-delimited)</p></li>
                 <li><p>Handle non-numeric data</p></li>
                 <li><p>Handle missing data</p></li>
-                <li><p>Use k-fold Cross Validation</p></li>
-            </ol>
+                <li><p>Use kNN for regression</p></li>
+<!--                 <li><p>Use k-fold Cross Validation</p></li>
+ -->            </ol>
 
 
-            <p>For the core requirements this week, you are welcome to use an off-the-shelf implementation of kNN.</p>
+            <h4>Library Implementations</h4>
+            <p>While you are welcome to use your own implementation of kNN, for this assignment, you may find it easier to use an existing library implementation. The recommended option is to use the sk-learn implementation, which can be used as follows:</p>
 
-            <p>To help work with these datasets, you should use the library <code>pandas</code>, which is a nice data science library that helps with pre-processing. Then, when the dataset is prepared, you'll need to convert it to a plain numpy array (rather than a Pandas DataFrame) to use with your prediction algorithms.</p>
+<pre><code class="python">
+from sklearn.neighbors import KNeighborsClassifier
+
+# ...
+# ... code here to load a training and testing set
+# ...
+
+classifier = KNeighborsClassifier(n_neighbors=3)
+classifier.fit(train_data, train_target)
+predictions = classifier.predict(test_data)
+</code></pre>
+
+            <p>There is also a regression version of this algorithm available:</p>
+
+<pre><code class="python">
+from sklearn.neighbors import KNeighborsRegressor
+
+# ...
+# ... code here to load a training and testing set
+# ...
+
+regr = KNeighborsRegressor(n_neighbors=3)
+regr.fit(train_data, train_target)
+predictions = regr.predict(test_data)
+</code></pre>
+
+
+            <h4>Pre-processing</h4>
+            <p>To help work with these datasets, you should use the library <code>pandas</code>, which is a very popular data science library that helps with pre-processing. Then, when the dataset is prepared, you'll need to convert it to a plain numpy array (rather than a Pandas DataFrame) to use with your prediction algorithms.</p>
 
             <h4>Hard-coded or General-purpose?</h4>
             <p>One question that always comes up when doing this kind of work is how much should your code be general-purpose versus tailed specifically to a particular data. This is a difficult question to answer, and there should be a balance of somewhere in between.</p>
@@ -52,17 +82,16 @@
             <p>Please use the following datasets:</p>
 
             <ul>
-                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/car+evaluation" target="blank">UCI: Car Evaluation</a> (contains categorical data)</p></li>
-<!--                 <li><p><a href="https://archive.ics.uci.edu/ml/datasets/pima+indians+diabetes" target="blank">Pima Indian Diabetes</a> (contains missing values that have been encoded as 0's)</p></li>
- -->                
-                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Autism+Screening+Adult" target="_blank">Autism Spectrum Disorder</a> (contains a mix of categorical, binary, and numeric data, and also contains missing data)</p></li>
-                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/auto+mpg" target="blank">Automobile MPG</a> - Your task here is to predict the MPG column. Notice that this is a regression task, rather than classification, because you are predicting a real-value. Also note that some columns are multi-valued discrete categories, rather than true numeric values, and also that there is some missing data.</p></li>
+                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/car+evaluation" target="blank">Car Evaluation</a>. The data for this is found in the .data file, which is a comma-separated values file. The target is the last column where you classify the car as acceptable, unacceptable, good, or very good. Please note that this dataset contains categorical (non-numeric) data.</p></li>
+                
+                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/auto+mpg" target="blank">Automobile MPG</a> - Your task here is to predict the MPG column (which is the <strong>first</strong> column, rather than the last column that we usually use for the target). Note that this is a regression task, rather than classification, because you are predicting a real-value. Also note that some columns are multi-valued discrete categories, rather than true numeric values, and also that there is some missing data.</p></li>
+                <li><p><a href="https://archive.ics.uci.edu/ml/datasets/Student+Performance" target="_blank">Student Performance</a>. This dataset contains two .csv files, one for a Math class (student-mat.csv) and one for a Portuguese class (student-por.csv). For this assignment, you can simply focus on the Math class. The task here is to predict the final grade which is stored in the final column (G3). Please note that this is a regression task.</p></li>
             </ul>
 
             <p>For each dataset, read it in, handle missing values, text data, etc., appropriately, and then use a kNN classifier with varying values for <em>k</em>.</p>
 
-            <p>For each dataset and configuration, use k-fold cross validation to compare your results.</p>
-
+<!--             <p>For each dataset and configuration, use k-fold cross validation to compare your results.</p>
+ -->
             <h3>Requirements</h3>
             <p>As always, you are encouraged to go above and beyond and take initiative in your learning. As described in the syllabus, meeting the minimum standard requirements can qualify you for 93%, but going above and beyond is necessary to get 100%. The following are the expectations for a minimum standard, with a few suggestions for going above and beyond.</p>
             <h4>Minimum Standard Requirements</h4>
@@ -70,8 +99,9 @@
                 <li><p>Read data from text files</p></li>
                 <li><p>Appropriately handle non-numeric data.</p></li>
                 <li><p>Appropriately handle missing data.</p></li>
-                <li><p>Use of k-Fold Cross Validation</p></li>
-                <li><p>Basic experimentation on the provided datasets.</p></li>
+                <li><p>Use kNN for classification and regression.</p></li>
+<!--                 <li><p>Use of k-Fold Cross Validation</p></li>
+ -->                <li><p>Basic experimentation on the provided datasets.</p></li>
             </ol>
 
             <h4>Some opportunities to go above and beyond:</h4>
@@ -86,7 +116,11 @@
 
 
             <h3>Submission</h3>
-            <p>When complete, push your code to a public GitHub repository and answer the questions in the <a href="./prove03.txt">submission txt file</a>. Please fill it out and upload it to I-Learn.</p>
+            <p>When complete, you need to upload two things (possibly more than two files) to I-Learn:</p>
+            <ol>
+                <li><p>Download the <a href="prove03.txt" target="_blank">assignment submission form</a>, answer its questions and upload this form to I-Learn.</p></li>
+                <li><p>Submit your source code to I-Learn. If you would prefer, you can post your source code to a Git repository and provide a link in your submission form.</p></li>
+            </ol>
 
         </article>
 

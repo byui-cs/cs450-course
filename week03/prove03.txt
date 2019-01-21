@@ -1,6 +1,6 @@
 When your assignment is complete, please answer the questions in this text file and upload it to I-Learn.
 
-1. Please provide the URL of your public GitHub repository.
+1. If you did not include your source code in your I-Learn submission, please provide the URL of your public GitHub repository.
 
 
 2. What was the most difficult part of this assignment?
@@ -15,21 +15,21 @@ When your assignment is complete, please answer the questions in this text file 
 5. Describe your results for the Car Evaluation dataset.
 
 
-6. Describe your results for the Pima Indian dataset.
+6. Describe your results for the Automobile MPG  dataset.
 
 
-7. Describe your results for the Automobile MPG dataset.
+7. Describe your results for the Student Performance dataset.
 
 
 8. Describe anything you did to go above and beyond the minimum standard requirements.
 
 
 9. Please select the category you feel best describes your assignment:
-A - Some attempt was made
-B - Developing, but significantly deficient
-C - Slightly deficient, but still mostly adequate
-D - Meets requirements
-E - Shows creativity and excels above and beyond requirements
+1 - Some attempt was made
+2 - Developing, but significantly deficient
+3 - Slightly deficient, but still mostly adequate
+4 - Meets requirements
+5 - Shows creativity and excels above and beyond requirements
 
 
 10. Provide a brief justification (1-2 sentences) for selecting that category.
