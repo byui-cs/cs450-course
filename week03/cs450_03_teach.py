@@ -64,11 +64,16 @@ print(data.native_country.value_counts())
 data[data.isnull().any(axis=1)]
 data.isna().any()
 
+# In my case, I am going to set the missing data to a new
+# category called, "unknown". Other good options would include:
+# -- Using the most common value for that attribute
+# -- Dropping the row completely if it has missing data
+# -- Imputing (or filling in) the value with a more sophisticated way
 data.workclass = data.workclass.fillna("unknown")
 data.native_country = data.native_country.fillna("unknown")
 data.occupation = data.occupation.fillna("unknown")
 
-# See if we have any NA's right now
+# See if we have any NA's right now (This should not show us any now...)
 data[data.isnull().any(axis=1)]
 data.isna().any()
 
@@ -113,7 +118,9 @@ data["relationship_cat"]= data.relationship.cat.codes
 
 # race
 data.race.value_counts()
-# One hot encoding
+#####
+# Using one hot encoding for this one...
+#####
 data = pd.get_dummies(data, columns=["race"])
 
 # sex
@@ -130,27 +137,35 @@ data.income.value_counts()
 data["incomeHigh"] = data.income.map({">50K": 1, "<=50K": 0})
 
 
-# Finally, let's get ride of all of the old columns
+# Finally, let's get rid of all of the old columns
 # NOTE: Race has already been dropped
 data = data.drop(columns=["workclass", "education", "marital_status", "occupation",
                    "relationship", "sex", "native_country", "income"])
 
 
-##############################
-# Part 4 - Use sk-learn
-##############################
+####################################
+# Part 4 - Use sk-learn to predict
+####################################
+# First convert the data to numpy arrays, because that's what sk-learn likes
 X = data.drop(columns=["incomeHigh"]).as_matrix()
 y = data["incomeHigh"].as_matrix().flatten()
 
+# Break up into training and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
+# Create the classifier
 classifier = KNeighborsClassifier(n_neighbors=5)
+
+# Train the classifier
 classifier.fit(X_train, y_train)
 
+# Make predictions on the test data
 y_pred = classifier.predict(X_test)
 
+# Compute and print the accuracy
 accuracy = accuracy_score(y_test, y_pred)
-
 print("Accuracy: {}".format(accuracy))
 
-
+# Stretch challenges still to do...
+# Normalize the numeric attributes
+# Use k-fold cross validation
