@@ -61,8 +61,8 @@ print(data.native_country.value_counts())
 ##############################
 
 # See if we have any NA's right now
-data[data.isnull().any(axis=1)]
-data.isna().any()
+data[data.isna().any(axis=1)] # shows records with NA's
+data.isna().any() # shows which columns have NA's
 
 # In my case, I am going to set the missing data to a new
 # category called, "unknown". Other good options would include:
@@ -74,8 +74,8 @@ data.native_country = data.native_country.fillna("unknown")
 data.occupation = data.occupation.fillna("unknown")
 
 # See if we have any NA's right now (This should not show us any now...)
-data[data.isnull().any(axis=1)]
-data.isna().any()
+data[data.isna().any(axis=1)] # shows records with NA's
+data.isna().any() # shows which columns have NA's
 
 
 ##############################
@@ -87,9 +87,13 @@ data.isna().any()
 # Show a list of the columns that are "object" types
 print(data.select_dtypes(include=["object"]).columns)
 
-# Two main choices here, one-hot enconding or label encoding, show some of each
+# Two main choices here, one-hot enconding or label encoding, for the
+# most part here, I opted for label encoding, but I used one-hot encoding
+# for the race
 
-# Do a value counts on each one, if it's really big, consider label encoding
+
+# For each one, I did a value_counts() first to see what it looked like,
+# if it's a really big list of possibilities, I consider label encoding
 
 # Workclass
 data.workclass.value_counts()
