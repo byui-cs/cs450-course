@@ -39,18 +39,14 @@
             <p>Add to your experiment shell from the previous assignment.</p>
             <ol>
 
-            <li><p> Implement a new algorithm, the ID3 Decision Tree.</p></li>
+            <li><p>Implement a new algorithm, the ID3 Decision Tree.</p></li>
 
-            <li><p>After implementing the algorithm, use it to classify a dataset of your choice.</p>
-
-<!--             <p>For whichever dataset you choose, you should experiment with different parameters for the algorithm. Also, you should produce some kind of text version (or some other visualization) of the decision tree that is induced by your algorithm (which will be submitted in your submission file).</p>
-
- -->            
+            <li><p>After implementing the algorithm, use it to classify a dataset of your choice.</p>            
             </li>
 
-            <li><p>Compare your implementation of the ID3 algorithm to an existing one (e.g., scikit-learn, Weka) and compare/contrast the results.</p></li>
+            <li><p>Compare your implementation of the a decision tree algorithm to an existing one (e.g., sk-learn, Weka) and compare/contrast the results.</p></li>
 
-            <li><p>When complete, push your code to a public GitHub repository and answer the questions in the <a href="./prove04.txt">submission text file</a>. Please fill it out and upload it to I-Learn.</p></li>
+            <li><p>When complete, submit your code and also answer the questions in the <a href="./prove04.txt">submission text file</a>. Please fill it out and upload it to I-Learn.</p></li>
 
         </ol>
 
@@ -61,7 +57,7 @@
             <ol>
                 <li>
                     <p>Choose at least 3 different datasets to use the decision tree algorithm on.</p>
-                    <p>As you are choosing datasets, make sure that among them you get to handle each of the following:</p>
+                    <p>As you are choosing datasets, make sure that among them you get to handle each of the following (not every dataset must contain all of these items):</p>
                     <ul>
                         <li><p>Numeric data</p></li>
                         <li><p>Categorical data</p></li>
@@ -71,13 +67,15 @@
                     </ul>
                 </li>
                 <li><p>For each dataset, produce some sort of visual representation of a tree that was induced.</p></li>
-                <li><p>For numeric data, try different approaches to binning (e.g., different numbers of bins, and binning by frequency vs. width, etc.). Contrast the results.</p></li>
-                <li><p>For categorical data, try a one-hot strategy and see how it compares to using the category directly.</p></li>
+<!--                 <li><p>For numeric data, try different approaches to binning (e.g., different numbers of bins, and binning by frequency vs. width, etc.). Contrast the results.</p></li>
+ -->
+                <li><p>For categorical data, try different approaches (label encoding, one-hot encoding, etc.) and compare/contrast their effectiveness.</p></li>
                 <li><p>For missing data, try different approaches and contrast the results.</p></li>
-                <li><p>Try different pruning strategies and note their effectiveness.</p></li>
+                <li><p>Try different strategies to reduce the height of the tree (e.g., pruning or limiting the height or the number of samples that go to a leaf) and note their effectiveness.</p></li>
                 <li>
                     <p>Prepare a PDF report that includes the results of running the algorithm on the datasets you chose (including results and a visualization of the tree). Also, include discussion of each of the above points (numeric data, missing data, etc.).</p>
-                    <p>Also, include in your report the grade category that best matches your assignment and provide a justification for this choice. </p>
+                    <p>Make sure to include in your report the grade category that best matches your assignment and provide a justification for this choice. </p>
+                    <p>Finally, submit your code to I-Learn as well as this PDF report.</p>
 
 <!--                     <ul>
                         <li><p>Describe the datasets you chose, include a visual representation of a tree, and highlight the best accuracy you observed and the parameters used to obtain it.</p></li>
