@@ -26,6 +26,10 @@
 
             <p>For this example, we will use the context of Netflix movie data to walk through several different elements of Python syntax.</p>
 
+            <p>You are encourged to use a Jupyter Notebook for this exercise. If you have installed Anaconda, you should be able to run <code>jupyter notebook</code> in a terminal window. This starts the network server and then opens the main notebook page in a browser. From here, you can create and run new notebooks.</p>
+
+            <p>To help get started, please download the following notebook: <a href="./cs450_01_python_practice.ipynb"></a></p>
+
             <h4>Part 1 - Classes</h4>
             <ol>
                 <li><p>Create a class to represent a Movie. It should have a title, a year, and a runtime (in minutes)</p></li>
@@ -42,7 +46,7 @@
             <h4>Part 2 - Lists, List Comprehensions, and Dictionaries</h4>
             <ol>
                 <li><p>Create a function called <code>create_movie_list</code>() that returns a list of movies. It should create 4-5 movies, add them to a list, then return the list.</p></li>
-                <li><p>Create a <code>main</code> function that calls the <code>create_movie_list</code>() function, then iterates through each item in the list and displays it.</p></li>
+                <li><p>Call the <code>create_movie_list</code>() function, then iterates through each item in the list and displays it.</p></li>
                 <li><p>Use a list comprehension to create a new list based on your original list, for all movies that have a runtime greater than 150 minutes. Loop through this list and print them out to ensure that it worked correctly.</p></li>
 <!--                 <li><p>Find and display the movie with the shortest runtime in your list.</p></li>
  -->                
@@ -87,7 +91,7 @@ def get_movie_data():
 </code></pre>
 
 
-                <li><p>Have main call this function and get the 2D numpy array. Then, find a way to display the number of rows in this array. On another line, display the number of columns.</p></li>
+                <li><p>Call this function and get the 2D numpy array. Then, find a way to display the number of rows in this array. On another line, display the number of columns.</p></li>
                 <li><p>Use slicing to grab the first two rows, and display the resulting dataset.</p></li>
                 <li><p>Use slicing to grab the last two columns, and display the resulting dataset.</p></li>
                 <li><p>From your 2D array, get a 1D array of all the values in the second column (views). Make sure you get this to a 1D array, not a 2D array with one column. When you display it, it should look like: <code>[18, 65, 38, 12]</code> not like: <code>[[18], [65], [38], [12]]</code></p></li>
@@ -109,7 +113,8 @@ def get_movie_data():
             <p>Please do not open the instructor code until you have worked on this assignment for the class period. At that point, if you are still struggling to complete any of these sections you are welcome to use this code to help guide you through the remaining sections:</p>
 
             <ul>
-                <li><p>Instructor code: <a href="https://github.com/byui-cs/cs450-course/blob/master/week01/cs450-01-python-practice.py" target="_blank">cs450-01-python-practice.py</a></p></li>
+                <li><p>Instructor code: <a href="https://byui-cs.github.io/cs450-course/week01/cs450_01_python_practice_teacher.ipynb" target="_blank">cs450-01-python-practice.py</a></p></li>                
+                <!-- <li><p>Instructor code: <a href="https://github.com/byui-cs/cs450-course/blob/master/week01/cs450-01-python-practice.py" target="_blank">cs450-01-python-practice.py</a></p></li> -->
             </ul>
 
             <h3>Submission</h3>
