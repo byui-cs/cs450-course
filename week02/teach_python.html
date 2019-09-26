@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 450 - Teach One Another</title>
+    <link rel="stylesheet" type="text/css" href="../course/style2018.css" />
+</head>
+
+<body>
+    <div id="courseTitle">
+        <span class="icon-byui-logo"></span>
+        <h1>Machine Learning &amp; Data Mining | CS 450</h1>
+    </div>
+    <article>
+
+            <h2>02 Teach : Python Practice</h2>
+
+            <h3>Objective</h3>
+            <p>Better understand python syntax that will be helpful for the k-Nearest Neighbors assignment.</p>
+
+            <h3>Instructions</h3>
+            <p>Work with your teams, but divide into smaller sub-teams of 2-3 people working around the same laptop. Start with the following variables:</p>
+
+<pre><code class="python">
+import numpy as np
+
+x = np.array([3, 6])
+y = np.array([5, 2])
+data = np.array([[2, 3], [3, 4], [5, 7], [2, 7], [3, 2], [1, 2], [9, 3], [4, 1]])
+animals = ["dog", "cat", "bird", "fish", "fish", "dog", "cat", "dog"]
+</code></pre>
+
+            <p>Then, work together to accomplish the following programming tasks:</p>
+
+            <p>You are welcome to use a Jupyter notebook or write this in a script. If you are using a Jupyter notebook, you can download a <a href="./cs450_02_python_practice.ipynb" download>blank template for this assignment here</a>.</p>
+
+            <ol>
+                <li><p>Compute the euclidean distance between two points: x and y.</p></li>
+                <li><p>Turn your code into a function that can compute the distance between any two points.</p>
+                    <p>Then verify that your function works by calling it with x and y.</p></li>
+                <li><p>Compute the distance between x and every row in the data array. Save each of these distances into a new list or numpy array.</p></li>
+                <li><p>Find the smallest two values in the list of distances you created in the last step.</p></li>
+                <li><p>Find the indexes of the smallest values in the list of distances.</p><p>(Hint: This is going to be super useful if you want to know not just the smallest distance but also which item corresponded to the smallest distance, so you could get its target value.)</p></li>
+                <li><p>Find the animal that occurs most frequently in the animals list.</p></li>
+            </ol>
+
+            <h3>Instructor Help</h3>
+            <p>Please do not open the instructor code until you have worked on this assignment for the class period. At that point, if you are still struggling to complete any of these sections you are welcome to use this code to help guide you through the remaining sections:</p>
+
+            <ul>
+                <li><p>Instructor code: <a href="https://github.com/byui-cs/cs450-course/blob/master/week02/cs450_02_python_practice_teacher.ipynb" target="_blank">cs450_01_python_practice_teacher.ipynb</a></p></li>                 
+                
+                <!-- <li><p>Instructor code: <a href="https://github.com/byui-cs/cs450-course/blob/master/week01/cs450-01-python-practice.py" target="_blank">cs450-01-python-practice.py</a></p></li> -->
+            </ul>
+
+            <h3>Submission</h3>
+            <p>You are welcome to complete this exercise after class (either by yourself or with others), before submitting the quiz.</p>
+
+            <p>When complete, report on your progress with the accompanying I-Learn quiz.</p>
+            
+        </article>
+
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+
+</html>
