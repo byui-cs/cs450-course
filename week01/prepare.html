@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>CS 450 - Prepare</title>
+    <title>CS 450 - 01 Prepare : Introduction</title>
     <link rel="stylesheet" type="text/css" href="../course/style2018.css" />
 </head>
 
@@ -20,26 +20,113 @@
 
             <p>This week will we introduce the concepts and technologies we will be using throughout the semester.</p>
 
-            <h3>Reading</h3>
+            <h3 id="objectives">Reading</h3>
 
             <ul>
                 <li><p><i>Machine Learning</i>, Chapter 1</p></li>
                 <li><p><a href="../overview/syllabus.html" target="_blank">CS 450 Syllabus</a></p></li>
-                <li><p><a href="../overview/project.html" target="_blank">Team Project Requirements</a></p></li>
+                <li><p><a href="../overview/project.html" target="_blank">Semester Project Requirements</a></p></li>
+                <li><p><a href="../overview/prepare-tools.html" target="_blank">Programming Tools for This Course</a></p></li>
+                <li><p><a href="#overview">Machine Learning Introduction (below)</a></p></li>
             </ul>
 
-            <h3>Getting Set Up</h3>
-            <p>See <a href="prepare-tools.html" target="_blank">Programming Tools</a>, but in short:</p>
+            <h3 id="overview">Machine Learning Introduction</h3>
 
-            <p>Download and configure Python. Then, become familiar with syntax by reading through some of the referenced tutorials.</p>
+            <p>After completing this reading, you should be able to:</p>
+            <ul>
+                <li><p><a href="#item-1">Explain the difference between artificial intelligence, machine learning, and data science</a>.</p></li>
+                <li><p><a href="#item-2">Discuss Moravec's paradox, and its implications for AI research</a>.</p></li>
+                <li><p><a href="#item-3">Understand how machine learning is used for both prediction and inference</a>.</p></li>
+                <li><p><a href="#item-4">Know how to start learning Python</a>.</p></li>
+            </ul>
 
-<!--             <ol>
+            <h4 id="item-1">Machine Learning Definitions</h4>
 
-            <li><p>Download and configure Python. Then, become familiar with syntax by reading through some of the referenced tutorials.</p></li>
+            <p>Everyone seems to have a slightly different take on the differences between Artificial Intelligence, Machine Learning, and Data Science. The following four articles cover some of the most common definitions.</p>
+            <p>As you read them, think about the differences and similarities of the definitions. Given the backgrounds of the various authors, whose opinions might you give more weight to?</p>
 
-            <li><p>If you don't already have them installed/configured, you will also need to set up Git/GitHub.</p></li>
+            <ol>
+                <li><p><a target="_blank" href="https://blogs.nvidia.com/blog/2016/07/29/whats-difference-artificial-intelligence-machine-learning-deep-learning-ai/">Michael Copeland writing for NVidia</a></p></li>
+
+                <li><p><a target="_blank" href="https://www.forbes.com/sites/bernardmarr/2016/12/08/what-is-the-difference-between-deep-learning-machine-learning-and-ai/#78654ee526cf">Bernard Marr writing for Forbes</a></p></li>
+            
+                <li><p><a target="_blank" href="http://www.datasciencecentral.com/profiles/blogs/difference-between-machine-learning-data-science-ai-deep-learning">Vincent Granville writing for Data Science Central</a></p></li>
+
+                <li><p><a target="_blank" href="http://simplystatistics.org/2013/12/12/the-key-word-in-data-science-is-not-data-it-is-science/">Simply Statistics Blog - The key word in "Data Science" is not Data, it is Science</a></p></li>
             </ol>
- -->            
+
+            <p>Of particular note is this quote from the Granville article:</p>
+            <blockquote>
+                <p>Earlier in my career (circa 1990) I worked on image remote sensing technology, among other things to identify patterns (or shapes or features, for instance lakes) in satellite images and to perform image segmentation: at that time my research was labeled as computational statistics, but the people doing the exact same thing in the computer science department next door in my home university, called their research artificial intelligence. Today, it would be called data science or artificial intelligence, the sub-domains being signal processing, computer vision or IoT.</p>
+            </blockquote>
+
+            <p>As with most things in the realm of science, there tends to be a wide gap between how the media, government, and business sectors view a particular technology compared to how it's viewed by the engineers and scientists using that technology.</p>
+
+            <p>For our purposes in this course, we'll define these terms as follows:</p>
+
+            <blockquote>
+                <p><strong>Artificial Intelligence</strong>: The study of man-made "agents" that perceive their environment and take actions that maximize their chances of success at some goal.<a class="footnote" href="#footnote-1" id="footnote-1-ref">[1]</a></p>
+
+                <p><strong>Machine Learning</strong>: A subfield within Artificial Intelligence that gives "computers the ability to learn without being explicitly programmed."<a class="footnote" href="#footnote-2" id="footnote-2-ref">[2]</a></p>
+
+                <p><strong>Data Science</strong>: The study and use of the techniques, statistics, algorithms, and tools needed to extract knowledge and insights from data.<a class="footnote" href="#footnote-3" id="footnote-3-ref">[3]</a></p>
+            </blockquote>
+
+            <h4 id="item-2">Moravec's Paradox</h4>
+            <p>In the 1980's, Hans Moravec made the following observation, which came to be known as Moravec's Paradox:</p>
+            <blockquote>
+                <p>...as the number of demonstrations has mounted, it has become clear that it is comparatively easy to make computers exhibit adult-level performance in solving problems on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility.<a class="footnote" href="#footnote-4" id="footnote-4-ref">[4]</a></p>
+            </blockquote>
+
+            <p>So, while AI and machine learning algorithms can accomplish many tasks much better than humans can, any toddler can outperform even the most state-of-the-art neural network in picking out photos of their parents or pet cat.</p>
+            <a href="#footnote-5" id="footnote-5-ref"><img class='fullsize' src="https://imgs.xkcd.com/comics/tasks.png"></a>
+
+            <p>Even though Moravec wrote about this over thirty years ago, the same sentiment persists in AI research today. In a 2016 interview, Dr. Sean Holden an AI researcher at Cambridge University, discussed the differences between human intelligence and artificial intelligence:</p>
+
+            <blockquote>
+                <p>“Most AI researchers don’t try to solve the whole problem because it’s too hard. They take some specific problem and do it better. That’s not to say that the way humans think isn’t useful to AI, but working out how brains do things is hard. And there’s a difference in scale. Brains are doing things that are in some senses quite different from what AI researchers are currently attacking – I’d be ecstatic, for example, if I could build a robot that could put on a duvet cover.”<a class="footnote" href="#footnote-6" id="footnote-6-ref">[6]</a></p>
+            </blockquote>
+
+            <p>Dr. Fumiya Iida, from the Machine Intelligence Lab at Cambridge, adds:</p>
+            <blockquote>
+                <p>“We have hundreds of thousands of muscles in our body, so how can the brain control this? A computer can’t. Every fraction of a second you have to co-ordinate hundreds of muscles just to grab a cup, for example.”<a class="footnote" href="#footnote-6" id="footnote-6-ref">[6]</a></p>
+            </blockquote>
+
+            <h4 id="item-3">Prediction vs. Inference</h4>
+            <p>In machine learning, we are typically interested in doing one of two things: making inferences, or making predictions.</p>
+
+             <blockquote>
+                <p><strong>Inference</strong>: Given a set of data you want to infer how the output is generated as a function of the data.</p>
+
+                <p><strong>Prediction</strong>: Given a new measurement, you want to use an existing data set to build a model that reliably chooses the correct identifier from a set of outcomes.</p><a class="footnote" href="#footnote-7" id="footnote-7-ref">[7]</a></p>
+            </blockquote>
+
+
+            <p>This example explains the differences between those two goals:</p>
+            <blockquote>
+              <p><strong>Inference</strong>: You want to find out what the effect of Age, Passenger Class and, Gender has on surviving the Titanic Disaster. You can put up a logistic regression and infer the effect each passenger characteristic has on survival rates.</p>
+
+                <p><strong>Prediction</strong>: Given some information on a Titanic passenger, you want to choose from the set <em>{lives,dies}</em> and be correct as often as possible.<a class="footnote" href="#footnote-7" id="footnote-7-ref">[7]</a></p>
+            </blockquote>
+
+
+            <div id="footnotes">
+                <h4>References</h4>
+                
+                <p id="footnote-1">1. <a target="_blank" href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach by Russell and Norvig (Prentice Hall, 2009)</a>.<a class="return href="#footnote-1-ref">&#8617;</a></p>
+                
+                <p id="footnote-2">2. <a target="_blank" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.368.2254&rep=rep1&type=pdf">Some Studies in Machine Learning Using the Game of Checkers, by Arthur L. Samuel (IBM Journal, Vol 3, No 3, 1959)</a>.<a class="return href="#footnote-2-ref">&#8617;</a></p>
+                
+                <p id="footnote-3">3. <a target="_blank" href="https://en.wikipedia.org/wiki/Data_science">Wikipedia article on Data Science</a>.<a class="return href="#footnote-3-ref">&#8617;</a></p>
+                
+                <p id="footnote-4">4. <a target="_blank" href="http://www.hup.harvard.edu/catalog.php?isbn=9780674576186&content=reviews">Mind Children, by Hans Moravec (Harvard University Press, 1988)</a>.<a class="return href="#footnote-4-ref">&#8617;</a></p>
+                
+                <p id="footnote-5">5. <a target="_blank" href="https://xkcd.com/1425/">XKCD 1425: Tasks</a>.<a class="return href="#footnote-5-ref">&#8617;</a></p>
+                
+                <p id="footnote-6">6. <a target="_blank" href="https://www.alumni.cam.ac.uk/magazine/cam-79">Cambridge Alumni Magazine, Issue 79, pg 19.</a><a class="return href="#footnote-6-ref">&#8617;</a></p>
+                
+                <p id="footnote-7">7. <a target="_blank" href="https://stats.stackexchange.com/a/244021">Cross Validated: Prediction vs Inference</a>.<a class="return href="#footnote-7-ref">&#8617;</a></p>
+            </div>
 
         </article>
 

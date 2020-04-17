@@ -164,7 +164,7 @@ article h4 {
 	color: #006AB9;
 	text-transform: uppercase;
 	padding-top: 20px;
-	margin-bottom: 0.1em;
+	margin-bottom: 0.3em;
 	font-weight: bold;
 }
 
@@ -175,7 +175,7 @@ article blockquote {
 	margin: 30px;
 }
 
-article blockquote p {
+article blockquote p, article blockquote li p {
 	font-style: italic;
 	font-size: 16px;
 	color: #C0C0C0;
