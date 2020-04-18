@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CSE 450 - 03 Teach : Team Activity
+CSE 450 - 03 Teach : Activity
 
-This script shows one approach to the team activity. It is not the
+This script shows one approach to the activity. It is not the
 only way, and there may be improvements to various things throughout.
 
 Data set source: https://archive.ics.uci.edu/ml/machine-learning-databases/adult/

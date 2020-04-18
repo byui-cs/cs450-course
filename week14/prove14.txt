@@ -1,4 +1,4 @@
-After completing your project report, please self evaluate the project and the contribution of each member of the team (including yourself). For each category, please use the following scale:
+After completing your project report, please self evaluate the project and if completed in teams, the contribution of each member of the team (including yourself). For each category, please use the following scale:
 
 --------------------------------------------------
 1 - Not present or extremely minimal
@@ -38,6 +38,15 @@ Then, provide a description / justification at the end.
 Please provide any overall comments about the project and a justification for your selections here:
 
 
+
+
+
+
+********************
+* Team Projects
+********************
+
+If the project was completed in teams, please complete the remaining sections:
 
 
 ********************
