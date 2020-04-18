@@ -14,120 +14,203 @@
     </div>
     <article>
 
+            <h2>01 Prove : Assignment - Classifier Intro</h2>
 
-            <h2>01 Prove : Assignment - Experiment Shell &amp; Hardcoded Classifier</h2>
-
-            <h3>Objective</h3>
-            <p>Create an experiment shell that can be used to load data, apply a classification algorithm, and report results.</p>
-
-            <p>As a placeholder, also implement a classifier, "HardCodedClassifier", that always predicts the same class.</p>
-
+            <h3>Overview</h3>
+                        
+            <p>In this assignment you will write a basic data classification harness that we'll be using in future assignments.</p>
             <p>More than anything, the purpose of this assignment is to make sure you have the pieces in place to be successful in future assignments. Next week, we will implement an actual classifier that will make use of the framework you put in place here.</p>
-            
-            <h3>Instructions</h3>
-            <p>In short, write a Python program that can:</p>
 
-            <ol>
-                <li><p>Load data</p></li>
-                <li><p>Prepare training/test sets</p></li>
-                <li><p>Use an existing algorithm to create a model</p></li>
-                <li><p>Use that model to make predictions</p></li>
-                <li><p>Implement your own new "algorithm"</p></li>
-            </ol>
-
-            <p>You are welcome to implement this in Python files using any IDE or as a Jupyter Notebook.</p>
-
-            <p>The following list expounds on each of the steps above. In more detail, your program should:</p>
-
-            <h4>1. Load data</h4>
-                <p>Load a dataset containing many instances each with a set of attributes and a target value.</p>
-
-                <p>Initially, use the popular Iris dataset, found in the <a href="http://archive.ics.uci.edu/ml/datasets/Iris" target="_blank">UCI data repository</a> It contains 150 instances of three classes of Irises (50 per class), and four numeric attributes (in addition to the class name).</p>
-
-                <p>Please note that this popular dataset is also natively included in the Python scikit-learn package. You can easily obtain it and view its contents with the following code:</p>
-
-<pre><code class="python">
-from sklearn import datasets
-iris = datasets.load_iris()
-
-# Show the data (the attributes of each instance)
-print(iris.data)
-
-# Show the target values (in numeric format) of each instance
-print(iris.target)
-
-# Show the actual target names that correspond to each number
-print(iris.target_names)
-</code></pre>
-                <p>In future weeks, you will need to be able to load data sets from text files as well, including those that have non-numeric data, so you should consider getting into that as an "above and beyond" idea for this week.</p>
-
-            <h4>2. Prepare training/test sets</h4>
-
-                <p>Randomize the data (making sure to keep the targets lined up with their corresponding instances), and split it into a training set (70%) and a testing set (30%).</p>
-
-                <p>You are welcome to do this yourself, slicing arrays, etc., but I would encourage you to look at the <code>train_test_split</code> function in sk-learn which does this for you.</p>
-
-            <h4>3. Use an existing algorithm to create a model</h4>
-
-                <p>Use the Naive Bayes algorithm implementation <code>GaussianNB</code> from <code>sk-learn</code> to train a model based on your training data and its targets. You can train a model with this classifier using its fit function:</p>
-
-<pre><code class="python">
-classifier = GaussianNB()
-classifier.fit(data_train, targets_train)
-</code></pre>
-
-            <h4>4. Use that model to make predictions</h4>
-
-                <p>Use the model created by the <code>fit()</code> function in the last step to predict the targets for your test set data. This can be done with the <code>.predict()</code> function on the classifier (or on the model that is returned by the fit function):</p>
-
-<pre><code class="python">
-targets_predicted = classifier.predict(data_test)
-</code></pre>
-
-                <p>Then, compare the predicted targets to the actual targets and output the resulting accuracy.</p>
-
-            <h4>5. Implement your own new "algorithm"</h4>
-                <p>Once you have the above components working, implement your first "learning algorithm," a HardCodedClassifier that always predicts the same class. In other words, if you are predicting fraudulent versus acceptable credit-card transactions, it would simply always predict "fraudulent." Or, in the case of the Iris dataset, it would always predict the same type of iris (e.g., Setosa, but it doesn't matter which one, just that it always predicts the same one).</p>
-
-                <p>You should create a new class, <code>HardCodedClassifier</code>, that has a <code>.fit()</code> method that accepts a dataset and "learns" (which in this case means it does nothing), and which also has a <code>.predict()</code> method that takes the test data and returns targets. These should be able to be used just like an sk-learn algorithm, like so:</p>
-
-<pre><code class="python">
-classifier = HardCodedClassifier()
-classifier.fit(data_train, targets_train)
-targets_predicted = classifier.predict(data_test)
-</code></pre>
-
-                <p>You don't need anything intelligent in your HardCoded classes. The <code>.fit()</code>method can just be empty, or print something to the screen. And the <code>.predict()</code> method can simply loop through the data and return a list of 0's as a prediction, one for each instance. In other words, it always predicts "iris-setosa" or something like that.</p>
-
-                <p>Instantiate your new classifier, "train" it with your training data, then use it to make predictions on the test data.</p>
-
-                <p>Determine the accuracy of your classifier's predictions and report the result as a percentage.</p>
-
-            <h3>Requirements</h3>
-            <p>As always, you are encouraged to go above and beyond and take initiative in your learning. As described in the syllabus, meeting the minimum standard requirements can qualify you for 93%, but going above and beyond is necessary to get 100%. The following are the expectations for the minimum standard, with a few suggestions for going above and beyond.</p>
-
-            <h4>Minimum Standard Requirements</h4>
-            <ul>
-                <li><p>The Iris dataset can be loaded</p></li>
-                <li><p>The order of the instances is randomized</p></li>
-                <li><p>The dataset can be split into a training / test set</p></li>
-                <li><p>The GaussianNB algorithm can be run on the Iris dataset, and be used to make predictions and get results.</p></li>
-                <li><p>A HardCodedClassifier class is created with fit and predict methods.</p></li>
-                <ul>
-                    <li><p>Fit accepts training data and targets</p></li>
-                    <li><p>Predict makes a prediction for the data it receives (at this point, it always predicts the same answer)</p></li>
-                </ul>
-                <li><p>HardCoded classifier can be "trained" and "tested" on the Iris dataset and accuracy on the training set is reported.</p></li>
+            <h4>Objectives</h4>
+            <ul class="small-list">
+                <li><p><a href="#item-1">Learn about Classification</a>.</p></li>
+                <li><p><a href="#item-2">Learn about the Iris Dataset</a>.</p></li>
+                <li><p><a href="#item-3">Become familiar with how classifiers work</a>.</p></li>
+                <li><p><a href="#item-4">Write an AlwaysZero classifier that processes the Iris dataset</a>.</p></li>
             </ul>
 
+            <h3 id="item-1">Classification Algorithms</h3>
+            
+            <p>Imagine that you're a big fan of comic books. Over the years, you've read enough Marvel and DC comics that if I asked you to "classify" which universe Superman belonged to, you'd be able to confidently say, "The DC Universe".</p>
+
+            <p>Or, let's say you've eaten a lot of chocolate in your life. If I were to have you close your eyes and take a bite of chocolate, you might be able to accurately tell me if it was white chocolate, milk chocolate, semi-sweet, or dark.</p>
+
+            <p>These are both classification problems. Based on your prior knowledge or <em>training</em> regarding different groups, you can take an item and sort it into the correct group.</p>
+
+            <p>In machine learning, classification algorithms, (or classifiers), need to be trained before they can classify things on their own. We can train an algorithm by providing it with lots of examples from each group and telling it which attributes of those samples are important. The more examples we use to train our algorithm, the more accurate the classification of new items will be.</p>
+
+            <p>In the example below, we’re telling the algorithm “this is what a <em>blue</em> circle looks like", or "this is what a <em>green</em> circle looks like", etc...</p>
+            <img class='fullsize' src="./img/train.png">
+
+            <p>Once an algorithm has been trained, we can see how well it performs by providing it  with test data consisting of new items it hasn't seen yet, and checking to see if it can correctly predict which group the new items belong to.</p>
+            <img class='fullsize' src="./img/test.png">
+
+            <h3 id="item-2">The Iris Dataset</h3>
+            <h4>About the data</h4>
+
+            <p>For this assignment, we'll be using <a href="./code/iris.data">Fisher's Iris dataset</a>. <a class="footnote" href="#footnote-1" id="footnote-1-ref">[1]</a></p>
+            
+            <p>The Iris dataset contains the length and width of the sepals and petals from 150 iris flowers across three different species of iris: <a target="_blank" href="https://en.wikipedia.org/wiki/Iris_setosa"><em>Iris setosa</em></a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Iris_versicolor"><em>Iris versicolor</em></a>, and <a target="_blank" href="https://en.wikipedia.org/wiki/Iris_virginica"><em>Iris virginica</em></a>.</p>
+            
+            <p>Each row in the Iris dataset represents the measurements of a single flower. We refer to each of these as a <code>sample</code>, <code>observation</code>, or <code>instance</code>.</p>
+
+            <img class='fullsize' src="./img/iris.png"/>
+
+            <p>Each column in the Iris dataset represents a particular thing being measured about each flower. From left to right we have (in centimeters) the sepal length, the sepal width, the petal length, and the petal width. Each of these is referred to as a <code>feature</code>, <code>attribute</code>, <code>measurement</code>, or <code>dimension</code>.</p>
+
+            <p>The final column in the dataset is the species of the flower. This final column is often referred to as the <code>target</code> or <code>class</code> of the sample.</p>
+
+            <img class='screenshot-large' src="./img/iris_description.png"/>
+
+            <h3 id="item-3">Classifiers</h3>
+
+            <p>Classifier algorithms generally follow the same set of steps. Our goal is to create a classifier that can be provided with the measurements of petals and sepals, and then use that information to predict the species of iris flower we're measuring.</p>
+
+            <h4>Load the Data</h4>
+            <p>The first thing we need to do is load our data. In most cases, there is some pre-processing that has to be done on the data in order to get it to the point where we can start working with it. In this case however, the data is provided to you in the exact format you need:</p>
+
+<pre><code class="python">     sepal_length  sepal_width  petal_length  petal_width         species
+0             5.1          3.5           1.4          0.2     Iris-setosa
+1             4.9          3.0           1.4          0.2     Iris-setosa
+2             4.7          3.2           1.3          0.2     Iris-setosa
+3             4.6          3.1           1.5          0.2     Iris-setosa
+4             5.0          3.6           1.4          0.2     Iris-setosa
+..            ...          ...           ...          ...             ...
+145           6.7          3.0           5.2          2.3  Iris-virginica
+146           6.3          2.5           5.0          1.9  Iris-virginica
+147           6.5          3.0           5.2          2.0  Iris-virginica
+148           6.2          3.4           5.4          2.3  Iris-virginica
+149           5.9          3.0           5.1          1.8  Iris-virginica
+ </code></pre>
+
+            <p>The <em>csv</em> file for the iris data can be found here. There are many ways to load data from a csv file, but one handy way is to use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html" target="_blank">read_csv function from the Pandas library:</a></p>
+
+<pre><code class="python">import pandas as pd
+url = "https://byui-cs.github.io/cs450-course/week01/iris.data"
+data = pd.read_csv(url)
+</code></pre>
+
+            <h4>Split the Data</h4>
+            <p>Next, we'll randomly divide all of the samples into two groups. The first group will consist of our <code>training data</code>, or the samples we'll use to train our classifier. The second group will consist of our <code>test data</code>, the data we'll use to test our classifier.</p>
+
+            <p>There are many ways to do this, but if have our features (sepal and petal measurements) and targets (species names) in separate arrays, we can use the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html?highlight=train_test_split#sklearn.model_selection.train_test_split" target="_blank">train_test_split function of the sklearn library</a> to do this for us:</p>
+
+<pre><code class="python">from sklearn.model_selection import train_test_split
+
+#...
+
+# Randomize and split the samples into two groups, 30% of the samples will be used for testing.
+# The other 70% will be used for training.
+train_data, test_data, train_targets, test_targets = train_test_split(iris.data, iris.target, test_size=.3)
+</code></pre>
+    
+            <p>You could also use python's built in libraries to randomly shuffle the data, and then use array slicing to split the data into test and training subsets. However if you do, make sure you do it in such a way that you still know which species goes with each set of measurements.</p>
+
+            <h4>Train the Classifier</h4>
+            <p>By providing the algorithm with training data, we allow it to create relationships between the features of a sample and its class. In the case of the Iris data set, we're training our algorithm on how a given set of sepal and petal measurements correlate to the flower's species.</p>
+
+            <p>sklearn has a classifier called <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html" target="_blank">GaussianNB</a> which we can use to demonstrate this. GaussianNB is a "Naïve Bayes" classifier that assumes two things about our data:
+
+            <blockquote>
+                <ul>
+                    <li><p>That the underlying features follow a continuous, normal distribution. (The Gaussian part)</p></li>
+                    <li><p>That each feature is statistically independent of every other feature. (The Naïve part)</p></li>
+                </ul>
+            </blockquote>
+
+            <p><strong>Do you think both of these assumptions are true for the Iris data?</strong></p>
+
+            <p>To train our classifier, first we create an instance of it, then we use the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB.fit" target="_blank">fit</a> method to teach it about our data:</p>
+<pre><code class="python">from sklearn.naive_bayes import GaussianNB
+
+#...
+
+classifier = GaussianNB()
+classifier.fit(train_data, train_targets)
+</code></pre>
+
+
+            <h4>Test the Classifier</h4>
+            <p>Now that our classifier has been trained on how to classify iris flowers, it's time to test it to see if it can correctly predict the species of flower from a set of measurements.</p>
+
+            <p>Note that it's very important when testing our algorithm that we only test it on data that was not used to train it. Otherwise, we're only testing it's ability to remember training data. This is why we split the data into two groups.</p>
+
+            <p>To test our classifier, we'll use the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB.predict" target="_blank">predict method</a> and provide it with our test data. This method will return a list of predicted targets, one for each sample in the test data.</p>
+
+            <p>In our case, we'll give it a list of petal and sepal measurements it has never seen before, and it will return a list of species predictions, on prediction for each sample in our test data:</p>
+
+<pre><code class="python">#...
+
+targets_predicted = classifier.predict(test_data)
+</code></pre>
+
+            <h4>Assess the Classifier's Performance</h4>
+
+            <p>Since we already know which type of iris each sample in the test data corresponds to, we can compare the predictions made by the classifier to the sample's actual species and calculate how well our algorithm performs.</p>
+
+            <p>If <em>m</em> is the number of correct predictions made, and <em>n</em> is the total number of samples in our test data, then accuracy can be calculated as:</p>
+
+            <p>$$
+                   accuracy = \frac{m}{n}
+                $$
+            </p>
+
+            <p>So if our test data has 20 samples and the classifier predicts the correct flower species for 15 of them, then we would say our algorithm has an <em>accuracy</em> of 75%.</p>
+
+            <p><strong>(Note that <em>accuracy</em> isn't actually a great metric to use for evaluating classification algorithms. We'll be looking at a few alternatives next week.)</strong></p>
+
+            <h4>Summary</h4>
+            <p>To summarize: we take our dataset and divide it in two parts: training data and test data. We use the training data to train the classifier to make classifications, then we use the test data to test how well our classifier performs.</p>
+
+            <p>If we have an classifier that performs well, we can use it with new data, samples whose groups we don't know ahead of time, and the accuracy metric will give us some idea of how reliable those predictions are.</p>
+
+            <p>If our classifier performs poorly, we either need to provide it with more training data, modify or replace it, or select a different set of attributes to use as features.</p>
+
+            <h3 id="item-4">Write Your Own Classifier</h3>
+            <p>Now that you understand how classifiers work, in this assignment you'll write your own, extremely stupid, classifer.</p>
+            <p>This classifer will ignore all training data you provide it, and when making predictions, will always predict 'Iris-setosa'.</p>
+            <p>The goal is to build the data pipeline and classifier structure this week. Then next week, you'll modify the classifier to be smarter.</p>
+
+            <p><strong>Remember</strong>: While you are free to search for things like: <em>how do I load a csv file in python</em>, you need to make sure you completely understand every line of code that you write. Also, searching for things like: <em>how do I write a classifier in python</em>, crosses the line into plagiarism.</p>
+
+            <p>You are welcome to structure this project in a different way, so long as it meets the requirements outlined below, but the following is a recommended set of steps you might follow:</p>
+
+            <ol>
+                <li><p>Load <a href="./code/iris.data">the provided Iris data</a></p></li>
+
+                <li><p>Randomly sort the list of samples, then split the data up into training data and test data. (I would recommend putting 70% of your data into the training dataset)</p></li>
+
+                <li>
+                    <p>Create a class called <code>HardCodedClassifier</code>.</p>
+                </li>
+
+                <li>
+                    <p>Add a <code>fit</code> method to the class that takes the training data and a list of targets and saves those as member variables.</p>
+<pre><code class="python">def train(self, data, targets):</code></pre>   
+                </li>
+                <li>
+                    <p>Add a <code>predict</code> function to the class that takes the test data, and saves it as a member variable. This function will return a list of predictions, one for each sample in the test data.</p>
+<pre><code class="python">def predict(self, data):
+</code></pre>                
+                    <p>As mentioned earlier, in a normal classifier, we would use the <code>fit</code> method to train the classifier, then the <code>predict</code> method would return a list of predictions for each item in the test data using some kind of machine learning algorithm.</p>
+                    <p>However, for this assignment we're creating a really stupid classifier, just to make sure we can load and process data correctly. So this week, have the <code>predict</code> method return 'Iris-setosa'as the prediction for each sample.</p>
+                    <p>In other words, if my classifier had 30 samples in the test data, <code>the</code> method would return a list containing 30 entries of <code>"Iris-setosa"</code>.</p>
+                </li>
+                <li>
+                    <p id="accuracy">Finally, take the list of predictions and compare them to the actual targets of the test data in order to generate an accuracy score. In my example, if half of the samples in the test data really were "Iris-setosa", the accuracy score should be 50% (since the classifier predicted "Iris-setosa" for every sample).</p>
+                    <p>$$
+                       accuracy = \frac{m}{n}
+                       $$
+                    </p>
+                </li>
+            </ol>
             <h4>Opportunities to go above and beyond:</h4>
             <ul>
-                <li><p>In addition to loading data from the sk-learn package, also, load data from CSV/text files</p></li>
-                <li><p>Handling non-numeric data types in CSV/text files</p></li>
-                <li><p>Adding user interface components (command line is just fine) to specify various parameters of an experiment (e.g., what dataset to use, what algorithm to use, how to split the training/testing data)</p></li>
-                <li><p>Adding <em>n</em>-fold cross validation</p></li>
+                <li><p>Have your <code>fit</code> method dynamically assign numeric labels to the targets and use those labels for its predictions.</p></li>
+                <li><p>Add command line parameters to allow the user to specify various parameters of an experiment (e.g., what dataset to use, what algorithm to use, what percentage to use to split the training/testing data), etc...</p></li>
+                <li><p>Add <em>n</em>-fold cross validation</p></li>
                 <li><p>Any other ideas you have</p></li>
-            </ul>            
+            </ul>
             
             <h3>Submission</h3>
 
@@ -135,14 +218,30 @@ targets_predicted = classifier.predict(data_test)
             <ol>
                 <li><p>Download the <a href="prove01.txt" target="_blank">assignment submission form</a>, answer its questions and upload this form to I-Learn.</p></li>
                 <li>
-                    <p>Submit your source code to I-Learn. If you would prefer, you can post your source code to a Git repository and provide a link in your submission form.</p>
-                    <p>If you used a Jupyter Notebook, do not upload the .ipynb file directly, instead, please export the file to HTML (Click <code>File -> Download as... -> Html</code>). Then, upload the HTML file to I-learn.</p>
+                    <p>You will then need to submit your source code.</p>
+
+                    <p>If you used a Jupyter Notebook, you should not submit that directly. Instead, upload it to a github repository and submit a link to that file.</p> 
+
+                    <p>If you used a Jupyter Notebook in Google Colaboratory, you can save a copy directly from there to GitHub (Click <code>File -> Save a copy in GitHub...</code></p>
+
+                    <p>Alternatively, if you used a Jupyter Notebook using Anaconda, do not upload the .ipynb file directly, instead, please export the file to HTML (Click <code>File -> Download as... -> Html</code>). Then, upload the HTML file to I-learn.</p>
+
+                    <p>Finally, if you used a regular <code>.py</code> source file, you can submit that (or a link to it from GitHub) directly to I-Learn. If you used Google Colaboratory, you can save the notebook as a <code>.py</code> file by clicking <code>File -> Download as .py</code></p>
                 </li>
             </ol>
+            <div id="footnotes">
+                <h4>References</h4>
+                <p id="footnote-1">1. <a target="_blank" href="http://www.comp.tmu.ac.jp/morbier/R/Fisher-1936-Ann._Eugen.pdf">Fisher, R. (1936). The use of multiple measurements in taxonomic problems. Annals Of Eugenics, 7(2), 179-188. doi:10.1111/j.1469-1809.1936.tb02137.x</a>.<a class="return" href="#footnote-1-ref">&#8617;</a></p>
+            </div>
         </article>
 
+   <script src="../course/js/katex/katex.min.js"></script>
+   <script src="../course/js/auto-render/auto-render.min.js"></script>
    <script src="../course/js/highlight/highlight.pack.js"></script>
-   <script>hljs.initHighlightingOnLoad();</script>
+   <script>
+    renderMathInElement(document.body);
+    hljs.initHighlightingOnLoad();
+   </script>
 
 </body>
 

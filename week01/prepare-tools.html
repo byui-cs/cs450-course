@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>CS 450 - Prepare</title>
+    <title>CS 450 - 01 Prepare : Programming Tools</title>
     <link rel="stylesheet" type="text/css" href="../course/style2018.css" />
 </head>
 
@@ -14,75 +14,122 @@
     </div>
     <article>
 
-
             <h2>01 Prepare : Programming Tools</h2>
-
-            <!-- <h3>Git and GitHub</h3>
-            <p>This semester, we will be using Git and GitHub to share files. It is expected that you are either familiar with Git already or can come up to speed on your own. You will not need to know everything that can be done with Git, but you will need to know the basics. If you are new to Git or need a refresher, the following may be helpful:</p>
-
-            <ul>
-                <li><p><a href="https://www.youtube.com/watch?v=0fKg7e37bQE" target="_blank">Github Tutorial For Beginners</a> - A YouTube video</p></li>
-                <li>
-                    <p><a href="http://git-scm.com/docs/gittutorial" target="_blank">Official Git documentation</a> - This is actually pretty accessible and helpful compared to the official documentation for most technologies.</p>
-                </li>
-            </ul> -->
 
             <h3>Python</h3>
 
-            <p>This semester we will be using Python for our coding exercises. Python has become very popular in both industry and academia and is well-suited for data analysis.</p>
+            <p>This semester we will be using Python 3 for our coding exercises. Python has become very popular in both industry and academia and is well-suited for data analysis.</p>
 
             <p>This is not a "coding" course <em>per se</em>, and at this point in your education it is assumed that you can come up to speed on a new programming language on your own. But, here are a few suggestions that may be beneficial:</p>
 
-            <h4>Installing Python and Libraries</h4>
-            <p>There are many different options for downloading and running Python and for authoring and debugging Python programs. It is your choice what tool set and configuration to use, however, based on previous semesters, the following is the recommended configuration for this class:</p>
+            <h4>Learn the Basics of Python</h4>
+            <p>This introduction assumes you have programmed in another language previously, and already understand fundamental programming concepts such as variables, functions, parameter passing, return values, boolean logic, arrays, and loops.</p>
+            
+            <p>If you don't understand these things, the following resources may not help you very much. Note that many of these resources say the same things in different ways. Since everyone learns differently, try out each of them and see which one resonates with you.</p>
+        
+            <p>The following are written tutorials designed for experienced programmers:</p>
+            <ul>
+                <li>
+                    <p><a target="_blank" href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/python-java-a-side-by-side-comparison/">Python and Java, a Side-by-Side Comparison</a></p>
+                </li>
+                <li>
+                    <p><a target="_blank" href="http://stackoverflow.com/questions/2339371/as-a-java-programmer-learning-python-what-should-i-look-out-for">Some Random Python Tips for Java Programmers</a></p>
+                </li>
+                <li>
+                    <p><a target="_blank" href="http://hetland.org/writing/instant-python.html">Instant Python Tutorial</a></p>
+                </li>
+            </ul>
+
+            <p>If you prefer an interactive tutorial that is more hand-holdy, you might prefer one of these:</p>
+            <ul>
+                <li>
+                    <p><a target="_blank" href="http://www.learnpython.org/en/Welcome">Learn Python Interactive Tutorial</a></p>
+                </li>
+                <li>
+                    <p><a target="_blank" href="https://www.codecademy.com/learn/python">Codecademy's Python Tutorial</a></p>
+                </li>
+            </ul>
+
+            <p>For a more in-depth interactive tutorial, <a href="http://interactivepython.org/runestone/static/thinkcspy/index.html" target="_blank">How to Think Like a Computer Scientist</a> is also very good.</p>
+
+            <h4>Learn to be "Pythonic"</h4>
+            <p>You can also learn a lot about how to do things the right/easier way in Python by learning about "Python Idioms":</p>
+
+            <ul>
+                <li>
+                    <p><a target="_blank" href="https://gist.github.com/JeffPaine/6213790">Transforming Code into Beautiful, Idiomatic Python</a></p>
+                </li>
+                <li>
+                    <p><a target="_blank" href="http://prooffreaderplus.blogspot.com/2014/11/top-10-python-idioms-i-wished-id.html">Top 10 Python idioms I wish I'd learned earlier</a></p>
+                </li>
+            </ul>
+
+            <p>If you already know Python 2, you should know that all of the code examples in this class will be done using Python 3. You can see <a href="http://www.cs.carleton.edu/faculty/jgoldfea/cs201/spring11/Python2vs3.pdf" target="_blank">a list of differences here</a>.</p>
+
+            <h4>Libraries common to data science</h4>
+            <p>There are a handful of python libraries that we'll be using repeatedly (SciPy, NumPy, Pandas, matplotlib) in this course. While you don't need to go through in-depth tutorials on them all immediately, it would be good to become familiar with their capabilities. You'll find many good resources and reference guides online for these libraries.</p>            
+
+            <h3>Setting up a Python environment for Data Science</h3>
+            <p>There are many different options for downloading and running Python and for authoring and debugging Python programs. It is your choice what tool set and configuration to use, however the following recommendations have worked well for students in the past:</p>
+
+            <h4>Google Colaboratory</h4>
+            <p>By far the easiest way to get up and running is to use <a href="https://colab.research.google.com/notebooks/intro.ipynb" target="_blank">Google's cloud-based Colaboratory environment</a>.</p>
+
+            <p>This option allows you to create, upload, edit, run, and share Jupyter notebooks in your browser with no local setup required. (most modern browsers should work, but Chrome is recommended).
+
+            <h4>Local Development</h4>
+            <p>If you prefer to have a local execution environment, you will need to install the following:</p>
 
             <ul>
                 <li><p>Runtime: Python 3 (Please note that Python 2 and 3 are similar but have slight differences.)</p></li>
                 <li><p>Libraries: NumPy, Pandas, sk-learn, SciPy, matplotlib</p></li>
-                <li><p>Editor: Spyder</p></li>
             </ul></p> 
 
-            <p>The Spyder IDE is designed for data science work (and has a similar style as RStudio if you are familiar with that), whereas others (e.g., PyCharm) are fine for data science work, but are specifically designed with more general software development in mind.</p>
+            <p>You can use any python editor, but the Spyder IDE is designed for data science work (and has a similar style as RStudio if you are familiar with that), whereas others (e.g., PyCharm) are fine for data science work, but are specifically designed with more general software development in mind.</p>
 
             <p>The easiest way to get Spyder, Python 3, and the needed libraries is to download and use the Anaconda distribution which includes all of these items. You can find links and instructions to download and install it from the Spyder homepage, <a href="https://www.spyder-ide.org/" target="_blank">https://www.spyder-ide.org/</a> .</p>
 
-            <!-- <ul>
-                <li><p>We will use NumPy, SciPy, matplotlib, pandas, and sk-learn this semester. You are welcome to get them all as part of a distribution like <a href="http://continuum.io/downloads" target="_blank">Anaconda</a>, but I find the pip installer to be really easy to use, where you can just type commands like the following in your command terminal:</p></li>
-
-<pre><code class="bash">
-pip install numpy
-pip install matplotlib
-...
-</code></pre>
-
-            </ul> -->
                 
-            <h4>Python Syntax</h4>
+            <h4>How to Find Help When You're Stuck</h4>
+            <p>Let's say that you're trying to complete an assignment that asks you to load a file of numbers, store them in a list, then calculate the average of all the numbers in the list.</p>
+            <p>The first step would be to break this down into small steps:</p>
+<pre><code class="python"># 1. Open a file and read each item
+# 2. Convert text to a number
+# 3. Store the number in a list
+# 4. Loop through the list and add all the values.
+# 5. Calculate the average
+</code></pre>
+            <p>Let's pretend you know how to do part 1, but not part 2:</p>
+<pre><code class="python"># 1. Open a file and read each item
+theFile = open("/Users/lfalin/Desktop/test.txt",'r')
+for line in theFile:
+    print(line, end='')
 
-            <p>There are lots of Python tutorials out there that cover its syntax at varying levels of complexity. For an experienced programmer that just wants to see the syntax and know some nuances, I find the <a href="http://www.scipy-lectures.org/intro/index.html" target="_blank">SciPy documentation</a> to be a nice tutorial. It is not very verbose, but systemically walks through topics and shows syntax examples. I would recommend reading at least:</p>
+# 2. Convert text to a number
+# 3. Store the number in a list
+# 4. Loop through the list and add all the values.
+# 5. Calculate the average
+</code></pre>
+            <p>You could conceivably try googling for "Calculate average of numbers in a text file" and find a bunch of code that would work. However, in that case you would learn very little. In addition, using such code would be considered plagiarism.</p>
+            <p>Instead, you can search for just how to do step 2: <em><a target="_blank" href="https://www.google.com/search?q=python+how+to+convert+text+to+a+number">python how to convert text to a number</a></em>.</p>
+            <p>Looking at the first result, we find <a href="http://stackoverflow.com/questions/379906/parse-string-to-float-or-int">a link to StackOverflow</a> that demonstrates how to use the <code>float()</code> and <code>int()</code> functions. You can now incorporate that knowledge into your own work:</p>
+<pre><code class="python"># 1. Open a file and read each item
+theFile = open("/Users/lfalin/Desktop/test.txt",'r')
+for line in theFile:
+    # 2. Convert text to a number
+    number = float(line)
+    print(number)
+# 3. Store the number in a list
+# 4. Loop through the list and add all the values.
+# 5. Calculate the average
+</code></pre>
+            <p>Note what does and does not count as plagiarism when it comes to programming assignments. In the plagiarism case, we're looking for the code we need to solve the problem and using that code directly (and often without understanding what it does).</p>
+            <p>In the second case, we've done our own work to break the problem down into discrete steps and we're trying to see how to complete a specific algorithmic step in a particular language.</p>
+            <p>Aside from the tutorials linked above, as well as the official <a href="https://docs.python.org/3/">Python documentation</a> and <a href="https://docs.python.org/3/tutorial/index.html">tutorial</a>, the best place to find answers to Python questions (or programming questions in general) is <a href="http://stackoverflow.com/">StackOverflow</a>.</p>
 
-            <ul>
-                <li><p><a href="http://www.scipy-lectures.org/intro/language/python_language.html" target="_blank">1.2 The Python language</a></p></li>
-                <li><p><a href="http://www.scipy-lectures.org/intro/numpy/index.html" target="_blank">1.3 NumPy</a></p></li>
-            </ul>
 
-            <p>Another nice resource that explains the concepts along with the syntax that I use in other courses is the interactive <a href="http://interactivepython.org/runestone/static/thinkcspy/index.html" target="_blank">How to Think Like a Computer Scientist</a> online text. It is much more gentle/instructive, and would likely be a good resource if you want to walk through a certain topic in more detail, where you could jump right to a specific chapter. For example, you might consider:</p>
-
-                <ul>
-                    <li><p><a href="http://interactivepython.org/runestone/static/thinkcspy/Functions/toctree.html" target="_blank">Chapter 6 - Functions</a></p></li>
-                    <li><p><a href="http://interactivepython.org/runestone/static/thinkcspy/Lists/toctree.html" target="_blank">Chapter 10 - Lists</a></p></li>                        
-                    <li><p><a href="http://interactivepython.org/runestone/static/thinkcspy/ClassesBasics/toctree.html" target="_blank">Chapter 16 - Classes</a></p></li>
-                </ul>
-
-            <p>Of course, searching the Internet itself is the best thing to do when you have a specific question. There are lots of great articles on StackOverflow and other Q&amp;A sites. Searching the Internet will be especially important when you are looking for particular functionality from a library.</p>
-
-            <!-- <h4>Development Environments</h4>
-            <ul>
-
-                <li><p>You can use whatever IDE you prefer (or none at all, see: <a href="https://xkcd.com/378/" target="_blank">https://xkcd.com/378/</a> ), but one good one you might consider is <a href="https://www.jetbrains.com/pycharm/download/" target="_blank">PyCharm</a>. The free community edition is great for our needs.</p></li>
-            </ul> -->
             <h3>Good Programming Practice</h3>
-            <p>While it will not be specifically enforced, as in a programming course, you are strongly encouraged to use good style, code conventions, and programming practice.</p>
+            <p>While it will not be specifically enforced, as in any programming course, you are strongly encouraged to use good style, code conventions, and programming practice.</p>
             <p>The <a href="https://google.github.io/styleguide/pyguide.html" target="_blank">Google Python Style Guide</a> is a nice guide to base your code on. (Be aware that the textbook author does not adhere to these principles).</p>
 
             <p>Finally, as heads up, be aware that if you put statements directly in your python files, it causes side effects when your code is imported into other files because that code is run. Thus, if you are writing functions that may be included in other programs, good programming practice is to use a main function as follows. This will ensure that your main function is run if your file is invoked directly and not if it is included in another module.</p>

@@ -1,5 +1,6 @@
 @import url("reset.css");
 @import url("./js/highlight/styles/monokai_sublime.css");
+@import url("./js/katex/katex.min.css");
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);
 
 @font-face {
@@ -41,6 +42,16 @@ body {
 	counter-reset: h3; 
 }
 
+a:link, a:visited {
+	color: #326BA9;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #0000FF;
+	text-decoration: none;
+}
+
 /* Title Bar */
 #courseTitle {
 	background: #326BA9;
@@ -74,12 +85,24 @@ pre code {
 	border: 1px solid #CCC;
 }
 
+p code, li code {
+	color: #A10200;
+	font-size: 16px;
+	font-family: Menlo, Monaco, Consolas, monospace;
+	font-weight: normal;
+}
+
 pre code.hljs {
 	padding-bottom: 25px;
 }
 
 code .user-input {
 	text-decoration: underline;
+}
+
+img.fullsize {
+	display: block;
+	margin: 0 auto 0.5em auto;
 }
 
 img.screenshot {
@@ -94,26 +117,6 @@ img.screenshot-large {
     margin: 0 auto 0.5em auto;
 }
 
-/*p code, li code {
-	color: #A10200;
-	font-size: 18px;
-	font-family: Menlo, Monaco, Consolas, monospace;
-	background: #FFF;
-	border: 1px solid #CCC;
-	padding: 2px 6px;
-}
-*/
-
-p code, li code {
-	font-size: 18px;
-	font-family: Menlo, Monaco, Consolas, monospace;
-	font-weight:bold;
-}
-/*
-article ol li code {
-	margin-left: 0.5em;
-}
-*/
 .java.hljs {
 	padding: 15px;
 }
@@ -126,8 +129,8 @@ article {
 }
 
 article p {
-	font-size: 22px;
-	line-height: 1.4em;
+	font-size: 19px;
+	line-height: 1.5em;
 	margin-bottom: 1em;
 }
 
@@ -139,7 +142,7 @@ article em {
 
 article strong {
 	font-weight: bold;
-	color: #CC0000;
+	color: #A93232;
 }
 
 article h2 {
@@ -157,12 +160,32 @@ article h3 {
 }
 
 article h4 {
+	font-size: 18px;
 	color: #006AB9;
 	text-transform: uppercase;
-	padding-top: 10px;
-	margin-bottom: 1em;
+	padding-top: 20px;
+	margin-bottom: 0.3em;
 	font-weight: bold;
 }
+
+article blockquote {
+	padding: 10px;
+	background: #07222E;
+	border-left: 10px solid #C0C0C0;
+	margin: 30px;
+}
+
+article blockquote p, article blockquote li p {
+	font-style: italic;
+	font-size: 16px;
+	color: #C0C0C0;
+	margin-left: 10px;
+}
+
+article blockquote strong {
+	color: #CF5944;
+}
+
 
 aside.pull-right, aside.pull-left {
 	position: absolute;
@@ -194,14 +217,19 @@ article ul  {
 }
 
 article ol  {
-	margin: 0 0 1em 3em;
+	margin: 1em 0 1em 3em;
+}
+
+article ol li:nth-child(even) {
+	background-color: #EEE;
 }
 
 article ol li {
 	list-style: decimal-leading-zero;
 	font-size: 18px;
-	color: #006AB9;
-	margin-bottom: 1em;
+	color: #666;
+	padding: 0.5em 0;
+	margin: 10px 0;
 	border-left: 2px solid #CCC;
 }
 
@@ -218,16 +246,10 @@ article li p {
 	margin-left: 10px;
 }
 
-article ol ul li {
-	list-style: none;
+article ul li {
+	list-style: disc;
 	border-left: none;
-}
-
-article ul li p:before {
-	content: "»";
-	color: #006AB9;
-	font-size: 24px;
-	margin-right: 0.5em;
+	color: #666;
 }
 
 @media only screen and (max-width: 1250px) {
@@ -272,6 +294,37 @@ article ul li p:before {
 .table-small li {
 
 	padding-left: 10px;
+}
+
+/*******************************
+* Footnotes
+********************************/
+.footnote {
+	margin-left: 5px;
+	font-size: 14px;
+	color: #919191;
+}
+
+#footnotes {
+	padding-top: 10px;
+	margin-top: 30px;
+	border-top: 1px solid #C0C0C0;
+	color: #919191;
+}
+
+#footnotes p {
+	font-size: 12px;
+}
+
+#footnotes a.return:visited, #footnotes a.return:link {
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+#footnotes h4 {
+	color: #666;
+	margin-bottom: 10px;
+	font-size: 12px;
 }
 
 
