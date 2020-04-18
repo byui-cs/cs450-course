@@ -92,6 +92,10 @@ p code, li code {
 	font-weight: normal;
 }
 
+li pre code {
+	margin-left: 10px;
+}
+
 pre code.hljs {
 	padding-bottom: 25px;
 }
@@ -264,6 +268,18 @@ article ul li {
 
 }
 
+.data-table {
+	display: block;
+	margin: 10px auto;
+	text-align: center;
+	vertical-align: middle;
+	width: 500px;
+}
+
+.data-table td {
+	border: 1px solid #CCC;
+	padding: 15px;
+}
 
 .table-small {
 	font-size:small;

@@ -3,119 +3,251 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>CSE 450 - Teach</title>
+    <title>CS 450 - Teach</title>
     <link rel="stylesheet" type="text/css" href="../course/style2018.css" />
 </head>
 
 <body>
     <div id="courseTitle">
         <span class="icon-byui-logo"></span>
-        <h1>Machine Learning &amp; Data Mining | CSE 450</h1>
+        <h1>Machine Learning &amp; Data Mining | CS 450</h1>
     </div>
     <article>
+            <h2>01 Teach : Team Activity - Python Practice</h2>
+
+            <h3>Overview</h3>
+
+            <p>This activity is designed to be completed in teams during class time.</p>
+            <p>In this activity you'll be practicing elements of Python that will be useful in your programming this semester.</p>
+
+            <p>You've been hired by ACE Ice Cream Inc. to study their sales data. They suspect that ice cream sales are <em>positively correlated</em> with the temperature, meaning that when the temperature increases, so do ice cream sales. They would like to quantify this.</p>
 
 
-            <h2>01 Teach : Activity - Python Practice</h2>
+            <h4>Objectives</h4>
+            <ul class="small-list">
+                <li><p>Make sure you have a Python environment set up for data science work.</p></li>
+                <li><p>Review basic statistics used in data science.</p></li>
+                <li><p>Practicing using the numpy library.</p></li>
+            </ul>
+            
+            <h3 id="a-word-on-notation">A Word on Notation</h3>
 
-            <h3>Objective</h3>
-            <p>This activity is designed to be completed in class.</p>
-            <p>Practice elements of Python that will be useful in your programming this semester.</p>
+            <p>When referring to a list or set of things in the formulas below, we'll use a capital letter, such as $X$.</p> 
 
-            <h3>Instructions</h3>
-            <p>Complete the following exercises. When done, report on your progress via the associated I-Learn quiz.</p>
+            <p>When referring to a single item from that list, we'll use the lowercase letter, $x$. </p>
+            
+            <p>The letter $n$ almost always refers to the number of items in a collection.</p>
+            
+            <p>The symbol $x_1$ means the first item in the collection $X$, and $x_i$ means the "ith" item in the collection $X$.</p>
+            
+            <p>The sigma symbol means to add all of the values over a range. For example:</p>
+            <p>$$ total = \sum_{i=1}^{n} x_i $$</p>
+            <p>Means the "total" can be calculated by adding all of the values in $X$ from $x_1$ (the first value) to $x_n$ (the "nth" or last value).</p>
+            <p>In some formula, sigma ranging from 1 to n is abbreviated as simply: $\Sigma$</p>
 
-            <p>For this example, we will use the context of Netflix movie data to walk through several different elements of Python syntax.</p>
 
-            <p>You are encourged to use a Jupyter Notebook for this exercise. If you have installed Anaconda, you should be able to run <code>jupyter notebook</code> in a terminal window. This starts the network server and then opens the main notebook page in a browser. From here, you can create and run new notebooks.</p>
+            <h3 id="stats-review">Statistics Review</h3>
+            <p>The following is a review of some basic statistics used in data science that you'll use in this activity. After completing this activity, you may want to refer back to this section and review it again in greater detail.</p>
+
+            <h4 id="mean-median-and-mode">Mean, Median, and Mode</h4>
+            <p>Many data science operations require us to do something with the <a href="https://www.khanacademy.org/math/probability/data-distributions-a1/summarizing-center-distributions/v/mean-median-and-mode">mean, median, and / or mode</a> of a <a href="http://openbookproject.net/thinkcs/python/english3e/lists.html">collection of items</a>.</p>
+            
+            <p>To refer to the mean value of a list $X$, we'll use the symbol $\bar{x}$ (pronounced "x-bar").</p>
+            <p>To calculate $\bar{x}$, we add up all of the values in the list, and divide the sum by the total number of items, $n$:</p>
+            <p>$$\bar{x} = \frac{\sum x_i}{n}$$</p>
+            <p>This can be calculated in Python fairly easily:</p>
+<pre class="codehilite"><code class="language-python"># Verbose version
+def mean(X):
+    total = sum(X)
+    length = len(X)
+
+    return total / length
+
+# More compact version
+def mean(X):
+    return sum(X) / len(X)</code></pre>
+
+<p>One of the advantages of python is the number of built in modules it has to accomplish common tasks. One such module is the <a href="https://docs.python.org/3/library/statistics.html#module-statistics">statistics</a> module</p>
+<pre class="codehilite"><code class="language-python">import statistics
+
+X = [1,4,4,5,2,500]
+
+mean = statistics.mean(X)
+median = statistics.median(X)
+mode = statistics.mode(X)
+
+print(&quot;Mean {0}, Median {1}, Mode {2}&quot;.format(mean, median, mode))</code></pre>
+
+<pre class="codehilite"><code class="language-text">Mean 86, Median 4.0, Mode 4</code></pre>
+
+            <p>Notice how the mean is strongly affected by the large <a href="https://www.mathsisfun.com/data/outliers.html">outlier</a> of 500, while the median is not affected. For this reason, we sometimes prefer the median over the mean in certain situations.</p>
+
+            <p>While the <code>statistics</code> module is fine for casual work, the <code>numpy</code> library has optimized versions of these functions which not only work directly with numpy arrays, but are <a href="https://stackoverflow.com/questions/37533666/why-is-statistics-mean-so-slow/37533799#37533799" target="_blank">orders of magnitude faster</a> than the standard library versions. This is because many of numpy's functions are implemented in C.</p>
+
+            <h4 id="demean">DeMean</h4>
+            
+            <p>To "demean" a list of values is to subtract the mean value from each item in the list.</p>
+            
+            <p>This technique is sometimes called "centering the data", because if you were to graph the data on a number line, <a href="https://www.khanacademy.org/math/ap-statistics/quantitative-data-ap/mean-median-more/a/mean-as-the-balancing-point">the mean is the point at which the line could be "balanced"</a>, and subtracting the mean from each item causes that balance point to shift to 0.</p>
+
+            <p>So if you start with this list:</p>
+<pre class="codehilite"><code class="language-python">[1, 4, 5, 3, 2]
+# The mean is: (1 + 4 + 5 + 3 + 2) / 5  = 3</code></pre>
+
+            <p>After demeaning it (subtracting 3 in this case), you end up with:</p>
+<pre class="codehilite"><code class="language-python">[-2, 1, 2, 0, -1]</code></pre>
+
+            <p>Notice that the mean of these new numbers is 0. Subtracting a dataset's mean from each item in the dataset will always have this effect.</p>
+
+            <p>Here's are two histogram plots of some random data. The chart on the left shows the original data, the one on the right is the same data after it has been "demeaned"</p> 
+
+            <img class='screenshot-large' src="./img/demeaned.png">
+
+            <p>Notice how the shape of the histogram has not changed, but that the bins are now centered over 0.</p>
+
+            <h4 id="dot-product">Dot Product</h4>
+            <p>The dot product (AKA inner product) of two lists is calculated by multiplying corresponding items together and summing up the results. For example, for two lists, $X$ and $Y$ (which must be of identical length), their dot product would be:</p>
+            <p>$$ X \cdot Y = \sum_{i=1}^{n} x_iy_i $$</p>
+            <p>In other words, given these two lists:</p>
+<pre class="codehilite"><code class="language-python">X = [1, 2, 3]
+Y = [5, 6, 7]</code></pre>
+
+            <p>Their dot product would be:</p>
+<pre class="codehilite"><code class="language-text">(1 * 5) + (2 * 6) + (3 * 7) = 38</code></pre>
+
+
+            <h4 id="variance">Variance</h4>
+            <p>The <a href="https://www.countbayesie.com/blog/2015/2/21/variance-co-variance-and-correlation" target="_blank">variance</a> (often referred to as $s^2$ or "Var") tells us how much variability or spread there is in the data. It can be calculated by dividing the "sum of squares" by $n - 1$. </p>
+            <p>$$s^2 = \frac{\sum (x_i - \bar{x}) ^ 2}{n-1}$$</p>
+            <p>In other words, imagine you have 3 items: <code>[3,4,5]</code>. The mean ($\bar{x}$) is 4. So you would first "demean" each item by subtracting the mean from the item, then you would square that result. Finally, you add all of those squared values together:</p>
+<pre class="codehilite"><code class="language-text"># Demean the items, by subtracting the mean from each one
+3 - 4 = -1
+4 - 4 = 0
+5 - 4 = 1
+
+# Square the differences
+-1 * -1 = 1
+ 0 * 0 = 0
+ 1 * 1 = 1
+
+# Add together all of the squared values:
+sum of squares = 1 + 0 + 1</code></pre>
+
+            <p>Notice that if we hadn't squared the demeaned values, adding them all together would have just given us 0. As mentioned previously, this is true for any set of data, because demeaning the data "recenters" the mean to be at 0. </p>
+            
+            <p>To avoid this problem without giving up the other statistical advantages of centering the data, we square the differences before adding them together.</p>
+            
+            <h4 id="standard-deviation">Standard Deviation</h4>
+            
+            <p>The <a href="https://simple.wikipedia.org/wiki/Standard_deviation">standard deviation</a> ($s$), is simply the square root of the variance.</p>
+            
+            <p>Like the variance, it also describes the spread of the data, but in a way that is more intuitive to understand because it uses the same units as the original data.</p>
+
+            <h4 id="covariance">Covariance</h4>
+            <p>The <a href="https://www.countbayesie.com/blog/2015/2/21/variance-co-variance-and-correlation" target="_blank">covariance</a> of two lists, $X$ and $Y$, will tell us how the values in $X$ change in relation to the values in $Y$. (For example, does $Y$ increase as $X$ decreases, or vice versa, and if so, by what proportion?)</p>
+            <p>It can be calculated as follows:</p>
+            <p>$$\text{Covariance(X,Y)} = \frac{\Sigma(x-\bar{x})(y-\bar{y})}{n-1}$$</p>
+            <p>Notice that the numerator of the covariance is the dot product of the demeaned versions of $X$ and $Y$.</p>
+
+
+            <h4 id="correlation-coefficient">Correlation Coefficient</h4>
+            <p>The <a href="https://www.countbayesie.com/blog/2015/2/21/variance-co-variance-and-correlation" target="_blank">correlation coefficient</a> ($r$) is a <a href="https://stats.stackexchange.com/questions/18082/how-would-you-explain-the-difference-between-correlation-and-covariance" target="_blank">normalized version</a> of the covariance. This makes it easier to use in comparisons. </p>
+            <p>Once you have functions to calculate the covariance and the standard deviation, calculating the correlation coefficient is easy. </p>
+            <p>The correlation coefficient can be calculated  by dividing the covariance of $X$ and $Y$ by the square root of the variance of $X$ times the variance of $Y$:</p>
+            <p>$$r = \frac{Covariance(X,Y)}{\sqrt{Var(X) \cdot Var(Y)}}$$</p>
+
+            <h3 id="assignment">Assignment</h3>
+
+            <p>We'll use the <code>numpy</code> library and some basic statistics to build a <code>SimpleCorrelator</code> class to calculate the correlation between ice cream sales and temperature.</p>
+
+            <p>You are encouraged to use a Jupyter Notebook for this exercise. If you have installed Anaconda, you should be able to run <code>jupyter notebook</code> in a terminal window. This starts the network server and then opens the main notebook page in a browser. From here, you can create and run new notebooks.</p>
 
             <p>To help get started, please download the following notebook: <a href="./cs450_01_python_practice.ipynb" download>cs450_01_python_practice.ipynb</a></p>
 
-            <h4>Part 1 - Classes</h4>
+            <h4>Part I: Build the class</h4>
+            <p>First, create a python class called <code>SimpleCorrelator</code> that has the following methods:</p>
+            <aside class="pull-left"><p>Note: When working with the numpy library, it is conventional to import it like this:</p><p><pre><code class="python">import numpy as np</code></pre></p></aside>
             <ol>
-                <li><p>Create a class to represent a Movie. It should have a title, a year, and a runtime (in minutes)</p></li>
-                <li><p>Create a movie object and fill it in with appropriate data</p></li>
-                <li><p>Override the __repr__ method for your class to return a string version of the object in the format: "title (year) - runtime mins", such as: <code>Jurassic World (2015) - 124 mins</code>. Then, print out your movie using a statment like <code>print(m)</code></p></li>
+                <li><p>A constructor that takes two arguments, <code>x</code> and <code>y</code> and stores them as member variables.</p></li>
+                <li><p>A method called <code>x</code> which will return the <code>x</code> data.</p></li>
+                <li><p>A method called <code>y</code> which will return the <code>y</code> data.</p></li>
+                <li><p>Create the following numpy arrays containing sales and temperature data:</p>
+<pre><code class="python"># sales
+sales = np.array([464.37,520.38,531.62,532.25,605.11,649.96,
+                  432.75,438.40,410.72,598.27,437.15,441.57,
+                  873.65,517.76,540.26,619.77,794.61,617.84,
+                  351.75,727.77,504.56,564.19,697.12,461.50,
+                  847.23,240.27,597.32,846.17,703.07,718.93,
+                  622.53,544.62,510.13,608.06,597.89,487.62,
+                  544.40,459.84,372.08,614.82,510.07,738.32,
+                  756.48,360.73,271.03,533.69,586.78,743.36,
+                  471.53,579.69])
 
-                <li><p>Add a method to your class to return the runtime in hours and minutes (it should calculate and return both of these... yes functions can return multiple things). Verify that this method works.</p></li>
-                
-                <li><p>Make it so that your init function (aka constructor) can accept a title, year, and runtime if they are passed when the object is created, and set the values accordingly (but it should also allow creation of a movie with out those, using default values like "", 0, 0).</p></li>
-
-                <li><p>Add logic to your init function so that if the supplied runtime is less than 0, the runtime is set to 0 instead of the value supplied.</p></li>
-            </ol>
-
-            <h4>Part 2 - Lists, List Comprehensions, and Dictionaries</h4>
-            <ol>
-                <li><p>Create a function called <code>create_movie_list</code>() that returns a list of movies. It should create 4-5 movies, add them to a list, then return the list.</p></li>
-                <li><p>Call the <code>create_movie_list</code>() function, then iterates through each item in the list and displays it.</p></li>
-                <li><p>Use a list comprehension to create a new list based on your original list, for all movies that have a runtime greater than 150 minutes. Loop through this list and print them out to ensure that it worked correctly.</p></li>
-<!--                 <li><p>Find and display the movie with the shortest runtime in your list.</p></li>
- -->                
-                <li><p>Create a dictionary that maps movie titles to an average number of stars from the users (e.g., 4.3 stars). Add each movie title in your list to your dictionary as the key, then use a library to get a random number, and assign each movie a number of stars (0 <= stars <= 5) (including decimals).</p></li>
-                <li><p>Loop through the dictionary and display the title of each movie with the number of stars it has received, showing the number of stars to 2 decimals of precision.</p></li>
-
-<!--                 <li><p>Find the movie that has the maximum number of stars and return it.</p></li>
- -->            </ol>
-
-            <h4>Part 3 - Numpy</h4>
-            <ol>
-                <li><p>Assume now that we had a dataset that had three columns (all numeric): id, views, stars. Create a function that creates and returns a 2D numpy array with or random values for 10 movies and these 3 columns.</p>
-
-                <p>You can use the following function for this:</p>
-                </li>
-
-<pre><code class="python">
-def get_movie_data():
-    """
-    Generate a numpy array of movie data
-    :return:
-    """
-    num_movies = 10
-    array = np.zeros([num_movies, 3], dtype=np.float)
-
-    random = Random()
-
-    for i in range(num_movies):
-        # There is nothing magic about 100 here, just didn't want ids
-        # to match the row numbers
-        movie_id = i + 100
-        
-        # Lets have the views range from 100-10000
-        views = random.randint(100, 10000)
-        stars = random.uniform(0, 5)
-
-        array[i][0] = movie_id
-        array[i][1] = views
-        array[i][2] = stars
-
-    return array
+# temperatures
+temps = np.array([73.75,66.56,87.54,78.79,82.35,80.50,
+                  76.09,74.13,74.83,76.13,76.41,72.08,
+                  86.30,72.82,75.10,81.44,84.11,85.19,
+                  70.34,81.89,78.31,78.35,89.29,77.31,
+                  84.41,71.94,80.34,90.42,83.31,83.32,
+                  76.81,74.50,73.16,77.07,81.04,77.14,
+                  75.20,70.03,72.63,80.29,66.07,82.50,
+                  83.00,69.97,61.72,77.11,76.07,85.83,
+                  72.72,75.16])
 </code></pre>
-
-
-                <li><p>Call this function and get the 2D numpy array. Then, find a way to display the number of rows in this array. On another line, display the number of columns.</p></li>
-                <li><p>Use slicing to grab the first two rows, and display the resulting dataset.</p></li>
-                <li><p>Use slicing to grab the last two columns, and display the resulting dataset.</p></li>
-                <li><p>From your 2D array, get a 1D array of all the values in the second column (views). Make sure you get this to a 1D array, not a 2D array with one column. When you display it, it should look like: <code>[18, 65, 38, 12]</code> not like: <code>[[18], [65], [38], [12]]</code></p></li>
+                </li>
+                <li><p>Create an instance of your <code>SimpleCorrelator</code> class, passing in your <code>sales</code> and <code>temps</code> data as x and y, respectively.</p></li>
             </ol>
 
+            <h4>Part II: Create some statistical functions</h4>
 
-<!--             <p>In groups of 2-3, work together to complete the following sections of the <a href="https://www.codecademy.com/learn/python" target="_BLANK">CodeAcademy Python Tutorial</a>:</p>
-            <ul>
-                <li>Unit 7: Lists and Functions</li>
-                <li>Unit 10: Advanced Topics in Python</li>
-                <li>(Extra Credit) Unit 11: Introduction to Classes</li>
-            </ul>
+            <ol>
+                <li><p>Add a <code>data_summary</code> method to your class that will calculate and return a string containing the size, mean, median, mode, variance, and standard deviation of both the <code>x</code> and <code>y</code> datasets. You should use the numpy methods to calculate these statistics.</p>
+<pre><code class="python">summary = myInstance.data_summary()
 
-            <p>For each section, complete the first lesson in that unit (you do not need to do the second, practice lesson, nor the quizzes/projects). After class, you are welcome to complete any work that you did not finish during class.</p>
+print(summary)
 
-        -->
+# prints something like (your numbers will be different):
+X - Summary
+  size: 50, mean: 23.3, median: 24.2, mode: 19, variance: 123, stdev: 12.3
+
+Y - Summary
+  size: 50, mean: 123.3, median: 234.2, mode: 149, variance: 233, stdev: 142.3
+</code></pre>
+                </li>
+                <li><p>Override the <code>__repr__</code> method of your class so that when you print your class instance, it will print the results of your <code>data_summary</code> method:</p>
+<pre><code class="python">print(myInstance)
+
+# prints something like (your numbers will be different):
+X - Summary
+  size: 50, mean: 23.3, median: 24.2, mode: 19, variance: 123, stdev: 12.3
+
+Y - Summary
+  size: 50, mean: 123.3, median: 234.2, mode: 149, variance: 233, stdev: 142.3
+</code></pre>
+            </li>
+        </ol>
+        <h4>Calculate the correlation coefficient</h4>
+        <ol>
+            <li><p>Add a method called <code>correlation</code> to your class that returns the correlation coefficient as a single value.</p>
+                <p>Note that there are several ways you could get this value. You could calculate it manually using the formulas provided above, or you could use a numpy method to do so.</p>
+                <p>However, many numpy methods will return a matrix of values. You will need to make sure that your method returns a scalar (single value) which represents the correlation between X and Y.</p>
+                <p>For example, this correlation coefficient matrix:</p>
+                <table class="data-table">
+                    <tr><td></td><td>X</td><td>Y</td></tr>
+                    <tr><td>X</td><td>1.0</td><td>0.4</td></tr>
+                    <tr><td>Y</td><td>0.4</td><td>1.0</td></tr>
+                </table>
+                <p>Shows that X and Y have a correlation coefficient of 0.4. Notice that X and Y are each perfectly correlated with themselves (X vs X and Y vs Y both have values of 1.0). Also notice that X vs Y and Y vs X have the same correlation coefficients.</p>
+                <p>So if this were our correlation coefficient matrix, then our <code>correlation</code> method should return a value of <code>0.4</code>.</p>
+                <p>It may not make sense to return a matrix of values in this situation, but often we're generating correlation coefficients between many different variables, trying to determine which are mostly tightly correlated with each other.</p>
+            </li>
+
 
             <h3>Instructor Help</h3>
             <p>Please do not open the instructor code until you have worked on this assignment for the class period. At that point, if you are still struggling to complete any of these sections you are welcome to use this code to help guide you through the remaining sections:</p>
 
             <ul>
-                <li><p>Instructor code: <a href="https://github.com/byui-cs/cs450-course/blob/master/week01/cs450_01_python_practice_teacher.ipynb" target="_blank">cs450_01_python_practice_teacher.ipynb</a></p></li>                 
-                
-                <!-- <li><p>Instructor code: <a href="https://github.com/byui-cs/cs450-course/blob/master/week01/cs450-01-python-practice.py" target="_blank">cs450-01-python-practice.py</a></p></li> -->
+                <li><p>Instructor code: <a href="https://github.com/byui-cs/cs450-course/blob/master/week01/cs450_01_python_practice_teacher.ipynb" target="_blank">cs450_01_python_practice_teacher.ipynb</a></p></li>
             </ul>
 
             <h3>Submission</h3>
@@ -125,8 +257,26 @@ def get_movie_data():
 
 
         </article>
-   <script src="../course/js/highlight/highlight.pack.js"></script>
-   <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../course/js/katex/katex.min.js"></script>
+    <script src="../course/js/auto-render/auto-render.min.js"></script>
+    <script src="../course/js/highlight/highlight.pack.js"></script>
+    <script>
+        renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        });
+
+        hljs.initHighlightingOnLoad();
+
+        var elements = document.querySelectorAll('.language-text')
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.add('hljs');
+        }
+    </script>
 
 </body>
 
