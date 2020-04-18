@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CS 450 - 03 Teach : Team Activity
+CSE 450 - 03 Teach : Team Activity
 
 This script shows one approach to the team activity. It is not the
 only way, and there may be improvements to various things throughout.

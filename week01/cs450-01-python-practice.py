@@ -1,6 +1,6 @@
 """
 Author: Brother Burton
-Description: Python Practice for CS 450, Week 01 Practice
+Description: Python Practice for CSE 450, Week 01 Practice
 """
 
 
