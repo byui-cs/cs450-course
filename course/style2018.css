@@ -318,6 +318,7 @@ article ul li {
 
 #footnotes a.return:visited, #footnotes a.return:link {
 	margin-left: 10px;
+	text-decoration: none;
 }
 
 #footnotes h4 {
