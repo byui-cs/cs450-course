@@ -104,6 +104,11 @@ code .user-input {
 	text-decoration: underline;
 }
 
+iframe {
+	display: block;
+	margin: 20px auto;
+}
+
 img.fullsize {
 	display: block;
 	margin: 0 auto 0.5em auto;
