@@ -165,12 +165,15 @@ sum of squares = 1 + 0 + 1</code></pre>
             <p>To help get started, please download the following notebook: <a href="./cs450_01_python_practice.ipynb" download>cs450_01_python_practice.ipynb</a></p>
 
             <h4>Part I: Build the class</h4>
-            <p>First, create a python class called <code>SimpleCorrelator</code> that has the following methods:</p>
             <aside class="pull-left"><p>Note: When working with the numpy library, it is conventional to import it like this:</p><p><pre><code class="python">import numpy as np</code></pre></p></aside>
             <ol>
-                <li><p>A constructor that takes two arguments, <code>x</code> and <code>y</code> and stores them as member variables.</p></li>
-                <li><p>A method called <code>x</code> which will return the <code>x</code> data.</p></li>
-                <li><p>A method called <code>y</code> which will return the <code>y</code> data.</p></li>
+                <li><p>First, create a python class called <code>SimpleCorrelator</code> that has the following methods:</p>
+                    <ul>
+                        <li><p>A constructor that takes two arguments, <code>x</code> and <code>y</code> and stores them as member variables.</p></li>
+                        <li><p>A method called <code>x</code> which will return the <code>x</code> data.</p></li>
+                        <li><p>A method called <code>y</code> which will return the <code>y</code> data.</p></li>
+                    </ul>
+                </li>
                 <li><p>Create the following numpy arrays containing sales and temperature data:</p>
 <pre><code class="python"># sales
 sales = np.array([464.37,520.38,531.62,532.25,605.11,649.96,
@@ -201,17 +204,19 @@ temps = np.array([73.75,66.56,87.54,78.79,82.35,80.50,
             <h4>Part II: Create some statistical functions</h4>
 
             <ol>
-                <li><p>Add a <code>data_summary</code> method to your class that will calculate and return a string containing the size, mean, median, mode, variance, and standard deviation of both the <code>x</code> and <code>y</code> datasets. You should use the numpy methods to calculate these statistics.</p>
+                <li><p>Add a <code>data_summary</code> method to your <code>SimpleCorrelator</code> class that will calculate and return a string containing the size, mean, variance, and standard deviation of both the <code>x</code> and <code>y</code> datasets.</p> 
+                <p>You should use the numpy methods to calculate these statistics.</p>
+                <p>Print out the results of the <code>data_summary</code> method to make sure it works as expected.</p>
 <pre><code class="python">summary = myInstance.data_summary()
 
 print(summary)
 
 # prints something like (your numbers will be different):
 X - Summary
-  size: 50, mean: 23.3, median: 24.2, mode: 19, variance: 123, stdev: 12.3
+  size: 50, mean: 23.3, variance: 123, stdev: 12.3
 
 Y - Summary
-  size: 50, mean: 123.3, median: 234.2, mode: 149, variance: 233, stdev: 142.3
+  size: 50, mean: 123.3, variance: 233, stdev: 142.3
 </code></pre>
                 </li>
                 <li><p>Override the <code>__repr__</code> method of your class so that when you print your class instance, it will print the results of your <code>data_summary</code> method:</p>
@@ -219,10 +224,10 @@ Y - Summary
 
 # prints something like (your numbers will be different):
 X - Summary
-  size: 50, mean: 23.3, median: 24.2, mode: 19, variance: 123, stdev: 12.3
+  size: 50, mean: 23.3, variance: 123, stdev: 12.3
 
 Y - Summary
-  size: 50, mean: 123.3, median: 234.2, mode: 149, variance: 233, stdev: 142.3
+  size: 50, mean: 123.3, variance: 233, stdev: 142.3
 </code></pre>
             </li>
         </ol>
@@ -240,6 +245,7 @@ Y - Summary
                 <p>Shows that X and Y have a correlation coefficient of 0.4. Notice that X and Y are each perfectly correlated with themselves (X vs X and Y vs Y both have values of 1.0). Also notice that X vs Y and Y vs X have the same correlation coefficients.</p>
                 <p>So if this were our correlation coefficient matrix, then our <code>correlation</code> method should return a value of <code>0.4</code>.</p>
                 <p>It may not make sense to return a matrix of values in this situation, but often we're generating correlation coefficients between many different variables, trying to determine which are mostly tightly correlated with each other.</p>
+                <p>If everything works correctly, the answer you get should be around <code>0.8</code>.</p>
             </li>
 
 
