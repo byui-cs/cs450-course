@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>CSE 450 - Prove</title>
+    <title>CSE 450 - 02 Prepare : k-Nearest Neighbors</title>
     <link rel="stylesheet" type="text/css" href="../course/style2018.css" />
 </head>
 
@@ -14,20 +14,185 @@
     </div>
     <article>
 
-            <h2>02 Prepare : Reading</h2>
+            <h2>02 Prepare : k-Nearest Neighbors</h2>
 
-            <h3>Preparation Material</h3>
+            <h3>Reading</h3>
 
-            <p>Before coming to class this week, please study the material from the following sections in your textbook (<em>Machine Learning</em>, Marsland):</p>
+            <p>Before coming to class this week, please study the following:</p>
 
             <ul>
-                <li><p>2.1 Some Terminology</p></li>
-                <li><p>2.2 Knowing What You Know</p></li>
-                <li><p>7.2 Nearest Neighbour Methods</p></li>
+                <li><p><i>Machine Learning</i>, Section 2.1 Some Terminology</p></li>
+                <li><p><i>Machine Learning</i>, Section 2.2 Knowing What You Know</p></li>
+                <li><p><i>Machine Learning</i>, Section 7.2 Nearest Neighbour Methods</p></li>
+                <li><p><a href="#item-1">How the k-Nearest Neighbors Algorithm works</a>.</p></li>
+                <li><p><a href="#item-2">Assumptions made by k-NN</a>.</p></li>
             </ul>
 
-        </article>
+            <h3 id="item-1">k-Nearest Neighbors Algorithm</h3>
+            <p>k-Nearest Neighbors is a simple classification algorithm.</p>
 
+            <h4>Visualizing the Data</h4>
+            <p>To understand how the algorithm works, let's look at a graph showing part of the Iris dataset samples plotted using two of their features, petal length and petal width:</p>
+            <p>(If you've forgotten the details of the Iris dataset, please <a href="../week01/prove.html#item-2">review them here</a> before continuing.)</p>
+            <img class='f' src="./img/knn.png"/>
+            <p>Each colored point on the plot represents one sample from the "training data".</p>
+            <p>The three black squares represent samples from the test data, whose species we want the algorithm to classify.</p>
+            <h4>The Algorithm</h4>
+            <p>The k-Nearest Neighbors algorithm allows us to predict which class a new sample belongs to by following these steps:</p>
+
+            <blockquote class="algorithm">
+                <p>Choose a value for <strong>k</strong>.</p>
+                <p>For each sample, <strong>$x_i$</strong>, in the training data:</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Find the <strong>k</strong> "closest" points to <strong>$x_i$</strong>.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Tally up how many times each class occurs within those <strong>k</strong> points.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Sample <strong>$x_i$</strong> is predicted to belong to the class which has the most occurrances.</p>
+            </blockquote>
+
+            <h4>Example</h4>
+            <p>Below is a zoomed-in view of one of the unknown samples. Let's imagine we choose to make <code>k=3</code>. The purple circle shows the 3 samples from the training data that are closest to the unknown sample.<a class="footnote" href="#footnote-1" id="footnote-1-ref">[1]</a></p>
+            <img src="./img/knn_zoomed_circle.png"/>
+
+            <p>Since there are two samples belonging to the <em>Iris versicolor</em> class and only belonging to <em>Iris virginica</em>, the algorithm predicts that the unknown sample is an <em>Iris versicolor</em>.</p>
+
+
+            <h3 id="item-2">Assumptions &amp; Considerations</h3>
+            <p>Every machine learning algorithm comes with some assumptions about the data it's processing. It's important to understand those assumptions, otherwise the predictions the algorithm makes won't be useful.</p>
+
+            <h4>Measuring Distance</h4>
+            <p>A major assumption made by k-NN is that there is some meaningful way to measure the distance between the samples. There are several ways to calculate the distance between neighbors. The most common method is to use <a href="https://en.wikipedia.org/wiki/Euclidean_distance" target="_blank">Euclidean Distance</a>. For 2-dimensional data, this can be calculated as: </p>
+
+            <p>$$
+               distance = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+               $$
+            </p>
+
+            <p>For <code>m</code>-dimensional data, this generalizes to:</p>
+
+            <p>$$
+               distance = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + ... + (m_2 - m_1)^2}
+               $$
+            </p>
+
+            <hr/>
+            <p>There are many other ways to measure the distance between two samples, including <a href="https://en.wikipedia.org/wiki/Taxicab_geometry" _target="_blank">Manhattan distance</a> and <a href="https://en.wikipedia.org/wiki/Chebyshev_distance" target="_blank">Chebyshev distance</a> metrics. (All three of the above are specific versions of another metric you'll often see discussed, called the <a href="https://en.wikipedia.org/wiki/Minkowski_distance" target="_blank">Minkowski distance</a> metric.</p>
+
+            <h4>Custom Metrics</h4>
+
+            <p>Aside from those mentioned above, any metric can be used to measure the distance between samples, so long as it meets the following four criteria:<a class="footnote" href="#footnote-2" id="footnote-2-ref">[2]</a></p>
+            <ol class="small-list">
+                <li>
+                    <p>The distance between any two samples is not a negative number. (non-negativity or separation axiom)</p>
+                </li>
+                <li>
+                    <p>The distance between any sample and itself is 0. (identity of indiscernibles)</p>
+                </li>
+                <li>
+                    <p>The distance between any two points, $a$ and $b$ is the same as the distance between point $b$ and $a$. (symmetry)</p>
+                </li>
+                <li>
+                    <p>It doesn't result in a violation of the <a target="_blank" href="https://www.mathsisfun.com/definitions/triangle-inequality-theorem.html">Triangle Inequality Theorem</a> (subadditivity).</p>
+                </li>
+            </ol>
+
+            <p>Unfortunately, there isn't an easy way to say which metric would be the "best".</p>
+            <p>We could test them all on a given set of training and test data and determine which performs the best, but each metric comes with its own assumptions about what the distance between samples represents.</p>
+
+            <p>Often, you'll need to think about the specific type of data, and the features under consideration in order to choose the most reasonable metric for your situation.</p>
+
+            <h4>Scaling/Normalizing the data</h4>
+            <p>In many cases, we'll need to scale or normalize the data before processing. (A process that is sometimes referred to as "pre-processing")</p>
+            <p>Imagine you're trying to use your kNN classifier to classify people into potential customers for a product. You survey a bunch of customers and use the features of age and annual salary:</p>
+            <img src="./img/income_unscaled.png"/>
+            <p>Consider two incomes that differ by 10% compared to two ages that differ by 10%:</p>
+            <p>$$
+               distance = \sqrt{(55000 - 50000)^2 + (33 - 30)^2}
+               $$
+            </p>
+            <p>Because incomes are several orders of magnitude greater than ages, the income feature will have a much stronger effect on the classification than the age feature.</p>
+
+            <p>To solve this, we can scale or <em>normalize</em> the data. There are two common approaches to this. First, you can do what's called min-max scaling (sometimes also called <em>normalization</em>) on each value:</p>
+            <p>$$
+               x' = \frac{x - x_{min}}{x_{max} - x_{min}}
+               $$
+            </p>
+            <p>This causes every value to rescale to fit within the range of 0 to 1. (the previous lowest value will become 0, and the previous highest value will become 1, everything else will fall between those values).</p>
+            <p>For kNN however, a more robust approach is to use Z-score normalization (sometimes also called <em>standardization</em>):</p>
+            <p>$$
+               x' = \frac{x - \mu}{\sigma}
+               $$
+            </p>
+            <p>Where, <em>$\mu$</em> is the mean of the feature being transformed, and <em>$\sigma$</em> is its standard deviation.</p>
+
+            <p>If we standardize the income and age data, notice how the scale changes without affecting the relative positions of the samples:</p>
+            <img src="./img/income_scaled.png"/>
+
+            <p>Since both features now use the same scale, they will have equal weight when calculating the distance between points.</p>
+
+            <strong>Warning</strong>
+            <p>You should be aware that many books and articles use the terms <em>"normalization"</em>, <em>"scaling"</em>, and <em>"standardization"</em> interchangeably. The way we've used the terms above is how they are most commonly used in statistics, but even amongst statisticians there can be some disagreement.<a class="footnote" href="#footnote-3" id="footnote-3-ref">[3]</a></p>
+
+            <p>When reading a description of pre-processing, it's important to understand exactly what kind of transformation the author is describing, regardless of what terminology they use.</p>
+
+
+            <h4>Choosing k</h4>
+
+            <p>Another issue to consider in kNN is what value to choose for <code>k</code>. If the value is too large, samples that are very distant may have an undue influence on the classification.</p>
+            <p>If the value is too small, the algorithm will be too sensitive to the influence of each sample.</p> 
+
+            <p>Unfortunately, there is no best answer for how to choose <code>k</code>, but there are some guidelines you can follow to figure out the best value for your specific dataset:</p>
+
+            <ul >
+                <li>
+                    <p>The value for <code>k</code> should not be an even number, as this can result in ties when counting which class is most common amongst the nearest neighbors.</p>
+                </li>
+                <li>
+                    <p>The value for <code>k</code> should not be a multiple of the number of classes, for the same reason as above. (So choosing 3, 6, 9, etc... for the iris dataset would potentially result in a tie because there are 3 classes in the data.</p>
+                </li>
+                <li>
+                    <p>A good starting point for <code>k</code> is the square root of the number of samples in your dataset.</p>
+                </li>
+                <li>
+                    <p>You should run the algorithm multiple times with different values of <code>k</code> and compare the results.</p>
+                </li>
+            </ul>
+
+            <h4>Seeing it in action</h4>
+
+            <p>You can see the algorithm in action and play around with the points with <a target="_blank" href="https://lettier.com/projects/knearestneighbors/">this interactive site</a>.</p>
+           
+
+            <div id="footnotes">
+                <h4>References</h4>
+                
+                <p id="footnote-1">1. Closest in terms of Euclidean Distance. See <a href="#item-2">part 2</a> for a discussion of distance measurements.<a class="return" href="#footnote-1-ref">&#8617;</a></p>
+
+                <p id="footnote-2">2. See <a href="https://en.wikipedia.org/wiki/Metric_(mathematics)#Definition" target="_blank">the definition of a Metric</a> for a more detailed discussion.<a class="return" href="#footnote-2-ref">&#8617;</a></p>
+
+                <p id="footnote-3">3. See <a href="http://sebastianraschka.com/Articles/2014_about_feature_scaling.html" target="_blank">this article</a> for a more detailed discussion of normalization and scaling.<a class="return" href="#footnote-3-ref">&#8617;</a></p>
+                
+            </div>
+
+        </article>
+    <script src="../course/js/katex/katex.min.js"></script>
+    <script src="../course/js/auto-render/auto-render.min.js"></script>
+    <script src="../course/js/highlight/highlight.pack.js"></script>
+    <script>
+        renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        });
+
+        hljs.initHighlightingOnLoad();
+
+        var elements = document.querySelectorAll('.language-text')
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.add('hljs');
+        }
+    </script>
 
 </body>
 
