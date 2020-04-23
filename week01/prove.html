@@ -179,7 +179,7 @@ targets_predicted = classifier.predict(test_data)
 
             <h3 id="item-4">Write Your Own Classifier</h3>
             <p>Now that you understand how classifiers work, in this assignment you'll write your own, extremely stupid, classifer.</p>
-            <p>This classifer will ignore all training data you provide it, and when making predictions, will always predict 'Iris-setosa'.</p>
+            <p>This classifer will ignore all training data you provide it, and when making predictions, will always predict <code>"Iris-setosa"</code>.</p>
             <p>The goal is to build the data pipeline and classifier structure this week. Then next week, you'll modify the classifier to be smarter.</p>
 
             <p><strong>Remember</strong>: While you are free to search for things like: <em>how do I load a csv file in python</em>, you need to make sure you completely understand every line of code that you write. Also, searching for things like: <em>how do I write a classifier in python</em>, crosses the line into plagiarism.</p>
@@ -204,11 +204,11 @@ targets_predicted = classifier.predict(test_data)
 <pre><code class="python">def predict(self, data):
 </code></pre>                
                     <p>As mentioned earlier, in a normal classifier, we would use the <code>fit</code> method to train the classifier, then the <code>predict</code> method would return a list of predictions for each item in the test data using some kind of machine learning algorithm.</p>
-                    <p>However, for this assignment we're creating a really stupid classifier, just to make sure we can load and process data correctly. So this week, have the <code>predict</code> method return 'Iris-setosa'as the prediction for each sample.</p>
+                    <p>However, for this assignment we're creating a really stupid classifier, just to make sure we can load and process data correctly. So this week, have the <code>predict</code> method return <code>"Iris-setosa"</code> as the prediction for each sample.</p>
                     <p>In other words, if my classifier had 30 samples in the test data, <code>the</code> method would return a list containing 30 entries of <code>"Iris-setosa"</code>.</p>
                 </li>
                 <li>
-                    <p id="accuracy">Finally, take the list of predictions and compare them to the actual targets of the test data in order to generate an accuracy score. In my example, if half of the samples in the test data really were "Iris-setosa", the accuracy score should be 50% (since the classifier predicted "Iris-setosa" for every sample).</p>
+                    <p id="accuracy">Finally, take the list of predictions and compare them to the actual targets of the test data in order to generate an accuracy score. In my example, if half of the samples in the test data really were <code>"Iris-setosa"</code>, the accuracy score should be 50% (since the classifier predicted <code>"Iris-setosa"</code> for every sample).</p>
                     <p>$$
                        accuracy = \frac{m}{n}
                        $$
