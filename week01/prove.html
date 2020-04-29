@@ -48,7 +48,7 @@
             <h3 id="item-2">The Iris Dataset</h3>
             <h4>About the data</h4>
 
-            <p>For this assignment, we'll be using <a href="./code/iris.data">Fisher's Iris dataset</a>. <a class="footnote" href="#footnote-1" id="footnote-1-ref">[1]</a></p>
+            <p>For this assignment, we'll be using <a href="./iris.data">Fisher's Iris dataset</a>. <a class="footnote" href="#footnote-1" id="footnote-1-ref">[1]</a></p>
             
             <p>The Iris dataset contains the length and width of the sepals and petals from 150 iris flowers across three different species of iris: <a target="_blank" href="https://en.wikipedia.org/wiki/Iris_setosa"><em>Iris setosa</em></a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Iris_versicolor"><em>Iris versicolor</em></a>, and <a target="_blank" href="https://en.wikipedia.org/wiki/Iris_virginica"><em>Iris virginica</em></a>.</p>
             
@@ -83,7 +83,7 @@
 149           5.9          3.0           5.1          1.8  Iris-virginica
  </code></pre>
 
-            <p>The <em>csv</em> file for the iris data can be found here. There are many ways to load data from a csv file, but one handy way is to use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html" target="_blank">read_csv function from the Pandas library:</a></p>
+            <p>The <em>csv</em> file for the iris data <a href="./iris.data">can be found here</a>. There are many ways to load data from a csv file, but one handy way is to use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html" target="_blank">read_csv function from the Pandas library:</a></p>
 
 <pre><code class="python">import pandas as pd
 url = "https://byui-cs.github.io/cs450-course/week01/iris.data"
@@ -95,13 +95,24 @@ data = pd.read_csv(url)
 
             <p>There are many ways to do this, but if have our features (sepal and petal measurements) and targets (species names) in separate arrays, we can use the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html?highlight=train_test_split#sklearn.model_selection.train_test_split" target="_blank">train_test_split function of the sklearn library</a> to do this for us:</p>
 
+            <p>Note, that if you use pandas to load the csv file, you'll have the data in a single pandas Data Frame. At some point you'll need to split that data frame into two numpy arrays, one containing the features, and the other containing the targets.</p>
+
+            <p>Take a look at the <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html" target="_blank">Indexing and Selecting Data</a> page in the Pandas user guide for more details and splitting the data, and the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_numpy.html" target="_blank">to_numpy function</a> for converting to a numpy array.</p>
+
+            <p>Not that you can make this transformation before dividing the data into test and training sets, (passing two numpy arrays to the train_test_split function and getting two sets of arrays back, or you can pass the data frame to <code>test_train_split</code>, and then split the test and training data each into their feature and target components.</p>
+
+            <p>The following examples assume you've split the data into features and targets before passing it to <code>test_train_split</code>.</p>
+
+
 <pre><code class="python">from sklearn.model_selection import train_test_split
 
-#...
+# features = ... select the feature columns from the data frame
+# targets = ... select the target column from the data frame
 
-# Randomize and split the samples into two groups, 30% of the samples will be used for testing.
+# Randomize and split the samples into two groups. 
+# 30% of the samples will be used for testing.
 # The other 70% will be used for training.
-train_data, test_data, train_targets, test_targets = train_test_split(iris.data, iris.target, test_size=.3)
+train_data, test_data, train_targets, test_targets = train_test_split(features, targets, test_size=.3)
 </code></pre>
     
             <p>You could also use python's built in libraries to randomly shuffle the data, and then use array slicing to split the data into test and training subsets. However if you do, make sure you do it in such a way that you still know which species goes with each set of measurements.</p>
@@ -157,7 +168,7 @@ targets_predicted = classifier.predict(test_data)
 
             <p>So if our test data has 20 samples and the classifier predicts the correct flower species for 15 of them, then we would say our algorithm has an <em>accuracy</em> of 75%.</p>
 
-            <p><strong>(Note that <em>accuracy</em> isn't actually a great metric to use for evaluating classification algorithms. We'll be looking at a few alternatives next week.)</strong></p>
+            <p><strong>(Note that <em>accuracy</em> isn't the best metric to use for evaluating classification algorithms. We'll be looking at a few alternatives in the future.)</strong></p>
 
             <h4>Summary</h4>
             <p>To summarize: we take our dataset and divide it in two parts: training data and test data. We use the training data to train the classifier to make classifications, then we use the test data to test how well our classifier performs.</p>
@@ -168,7 +179,7 @@ targets_predicted = classifier.predict(test_data)
 
             <h3 id="item-4">Write Your Own Classifier</h3>
             <p>Now that you understand how classifiers work, in this assignment you'll write your own, extremely stupid, classifer.</p>
-            <p>This classifer will ignore all training data you provide it, and when making predictions, will always predict 'Iris-setosa'.</p>
+            <p>This classifer will ignore all training data you provide it, and when making predictions, will always predict <code>"Iris-setosa"</code>.</p>
             <p>The goal is to build the data pipeline and classifier structure this week. Then next week, you'll modify the classifier to be smarter.</p>
 
             <p><strong>Remember</strong>: While you are free to search for things like: <em>how do I load a csv file in python</em>, you need to make sure you completely understand every line of code that you write. Also, searching for things like: <em>how do I write a classifier in python</em>, crosses the line into plagiarism.</p>
@@ -176,7 +187,7 @@ targets_predicted = classifier.predict(test_data)
             <p>You are welcome to structure this project in a different way, so long as it meets the requirements outlined below, but the following is a recommended set of steps you might follow:</p>
 
             <ol>
-                <li><p>Load <a href="./code/iris.data">the provided Iris data</a></p></li>
+                <li><p>Load <a href="./iris.data">the provided Iris data</a></p></li>
 
                 <li><p>Randomly sort the list of samples, then split the data up into training data and test data. (I would recommend putting 70% of your data into the training dataset)</p></li>
 
@@ -186,18 +197,18 @@ targets_predicted = classifier.predict(test_data)
 
                 <li>
                     <p>Add a <code>fit</code> method to the class that takes the training data and a list of targets and saves those as member variables.</p>
-<pre><code class="python">def train(self, data, targets):</code></pre>   
+<pre><code class="python">def fit(self, data, targets):</code></pre>   
                 </li>
                 <li>
                     <p>Add a <code>predict</code> function to the class that takes the test data, and saves it as a member variable. This function will return a list of predictions, one for each sample in the test data.</p>
 <pre><code class="python">def predict(self, data):
 </code></pre>                
                     <p>As mentioned earlier, in a normal classifier, we would use the <code>fit</code> method to train the classifier, then the <code>predict</code> method would return a list of predictions for each item in the test data using some kind of machine learning algorithm.</p>
-                    <p>However, for this assignment we're creating a really stupid classifier, just to make sure we can load and process data correctly. So this week, have the <code>predict</code> method return 'Iris-setosa'as the prediction for each sample.</p>
-                    <p>In other words, if my classifier had 30 samples in the test data, <code>the</code> method would return a list containing 30 entries of <code>"Iris-setosa"</code>.</p>
+                    <p>However, for this assignment we're creating a really stupid classifier, just to make sure we can load and process data correctly. So this week, have the <code>predict</code> method return <code>"Iris-setosa"</code> as the prediction for each sample.</p>
+                    <p>In other words, if my classifier had 30 samples in the test data, the <code>predict</code> method would return a list containing 30 entries of <code>"Iris-setosa"</code>.</p>
                 </li>
                 <li>
-                    <p id="accuracy">Finally, take the list of predictions and compare them to the actual targets of the test data in order to generate an accuracy score. In my example, if half of the samples in the test data really were "Iris-setosa", the accuracy score should be 50% (since the classifier predicted "Iris-setosa" for every sample).</p>
+                    <p id="accuracy">Finally, take the list of predictions and compare them to the actual targets of the test data in order to generate an accuracy score. In my example, if half of the samples in the test data really were <code>"Iris-setosa"</code>, the accuracy score should be 50% (since the classifier predicted <code>"Iris-setosa"</code> for every sample).</p>
                     <p>$$
                        accuracy = \frac{m}{n}
                        $$
